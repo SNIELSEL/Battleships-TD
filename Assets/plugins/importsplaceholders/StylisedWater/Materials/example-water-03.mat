@@ -112,7 +112,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_7D9A58EC: {r: 0.047058824, g: 0.3424852, b: 0.7529412, a: 1}
-    - Color_F01C36BF: {r: 0.47346365, g: 0.098039195, b: 0.65882355, a: 1}
+    - Color_F01C36BF: {r: 0.10916442, g: 0.480346, b: 1, a: 1}
     - Vector2_37B21477: {r: 0.1, g: 0.1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
