@@ -7,11 +7,13 @@ using UnityEngine.AI;
 
 public class Boatnavigation : MonoBehaviour
 {
-
+    [Header("Destinations")]
     public Transform firstDestination;
     public Transform secondDestination;
     public Transform finalDestination;
     public Transform lookatPoint;
+
+    [Header("Agent")]
     public NavMeshAgent agent;
 
     private bool hasReachedFirstDestination;

@@ -426,7 +426,6 @@ GameObject:
   - component: {fileID: 584223294717513098}
   - component: {fileID: 4130830819161359623}
   - component: {fileID: 2849007159395869836}
-  - component: {fileID: 1650494637018690182}
   m_Layer: 0
   m_Name: main boot
   m_TagString: Untagged
@@ -507,19 +506,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1650494637018690182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3631751583405007417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36aa02d38bb10b548bc7b8879596b15c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaterVolumeHelper: {fileID: 0}
 --- !u!1 &5002212129668301000
 GameObject:
   m_ObjectHideFlags: 0
