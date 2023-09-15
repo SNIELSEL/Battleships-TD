@@ -42,7 +42,8 @@ public class Boatnavigation : MonoBehaviour
             agent.destination = finalDestination.position;
         }
 
-        transform.LookAt(lookatPoint);
+        transform.LookAt(agent.destination);
+
     }
 
     public void OnTriggerEnter(Collider collision)
