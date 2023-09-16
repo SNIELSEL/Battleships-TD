@@ -4,9 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FirstDestination
-  - FinalDestination
-  - SecondDestination
+  - WaypointSystem1
+  - WaypointSystem2
+  - WaypointSystem3
+  - WaypointSystem4
+  - WaypointSystem5
+  - GhostWayPoint1
+  - GhostWayPoint2
+  - GhostWayPoint3
+  - GhostWayPoint4
   layers:
   - Default
   - TransparentFX
