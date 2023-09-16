@@ -1,66 +1,69 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Boatnavigation : MonoBehaviour
 {
-    [Header("Destinations")]
-    public Transform firstDestination;
-    public Transform secondDestination;
-    public Transform finalDestination;
-    public Transform lookatPoint;
-
-    [Header("Agent")]
     public NavMeshAgent agent;
 
-    private bool hasReachedFirstDestination;
-    private bool hasReachedSecondDestination;
-    private bool hasReachedFinalDestination;
+    public List<Transform> destinations;
+    public Transform parentObject;
+    public Transform LookatTransform;
 
+    public string waypointTag;
+
+    public float rotationTime;
+
+    public bool isGhostShip;
+
+    private int currentDestination;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        
+        for(int i = 0; i < parentObject.childCount; i++)
+        {
+            destinations.Add(parentObject.GetChild(i));
+        }
+
+        agent.destination = destinations[currentDestination].position;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(!hasReachedFirstDestination)
+        if(!isGhostShip)
         {
-            agent.destination = firstDestination.position;
+            transform.LookAt(LookatTransform);
         }
-        else if(hasReachedFirstDestination && !hasReachedSecondDestination)
-        {
-            agent.destination = secondDestination.position;
-        }
-        else if(hasReachedSecondDestination && !hasReachedFinalDestination)
-        {
-            agent.destination = finalDestination.position;
-        }
-
-        transform.LookAt(agent.destination);
-
     }
 
     public void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag == "FirstDestination")
+        if (collision.gameObject.tag == waypointTag)
         {
-            hasReachedFirstDestination = true;
-        }
+            currentDestination++;
 
-        if (collision.gameObject.tag == "SecondDestination")
-        {
-            hasReachedSecondDestination = true;
-        }
 
-        if (collision.gameObject.tag == "FinalDestination")
-        {
-            hasReachedFinalDestination = true;
+            if (destinations.Count >= currentDestination + 1)
+            {
+                agent.destination = destinations[currentDestination].position;
+            }
+            else
+            {
+                StartCoroutine(DisengageGhost());
+            }
         }
     }
+
+    public IEnumerator DisengageGhost()
+    {
+        yield return new WaitForSeconds(2);
+        gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+        gameObject.GetComponent<Boatnavigation>().enabled = false;
+    }
 }
+
