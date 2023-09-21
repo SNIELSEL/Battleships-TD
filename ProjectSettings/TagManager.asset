@@ -13,6 +13,10 @@ TagManager:
   - GhostWayPoint2
   - GhostWayPoint3
   - GhostWayPoint4
+  - GhostShip
+  - GhostShip1
+  - GhostShip2
+  - GhostShip3
   layers:
   - Default
   - TransparentFX

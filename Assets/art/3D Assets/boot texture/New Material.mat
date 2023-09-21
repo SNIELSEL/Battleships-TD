@@ -206,7 +206,7 @@ Material:
     - _SpecShadowStrength: 1
     - _SpecSource: 0
     - _SpecularClipStrength: 0
-    - _SpecularFalloff: 1
+    - _SpecularFalloff: 0.626
     - _SpecularHighlights: 0
     - _SpecularSize: 0.369
     - _SpherizeNormalEnabled: 0

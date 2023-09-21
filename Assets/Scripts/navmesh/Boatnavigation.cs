@@ -1,3 +1,4 @@
+using Bitgem.VFX.StylisedWater;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,9 +21,28 @@ public class Boatnavigation : MonoBehaviour
     public bool isGhostShip;
 
     private int currentDestination;
+
+    ShipSpawner shipSpawner;
     // Start is called before the first frame update
     void Start()
     {
+        this.GetComponent<WateverVolumeFloater>().enabled = true;
+        shipSpawner = GameObject.Find("Keep").GetComponent<ShipSpawner>();
+
+        if (!isGhostShip && LookatTransform == null && shipSpawner.locationToSpawn != 4)
+        {
+            LookatTransform = GameObject.FindWithTag(shipSpawner.ghostShipTags[shipSpawner.locationToSpawn]).transform;
+        }
+
+        if (parentObject == null && !isGhostShip)
+        {
+            parentObject = shipSpawner.rails[shipSpawner.locationToSpawn];
+        }
+        else if (parentObject == null && isGhostShip)
+        {
+            parentObject = shipSpawner.Ghostrails[shipSpawner.locationToSpawn];
+        }
+
         agent = GetComponent<NavMeshAgent>();
         
         for(int i = 0; i < parentObject.childCount; i++)
@@ -35,7 +55,7 @@ public class Boatnavigation : MonoBehaviour
 
     void Update()
     {
-        if(!isGhostShip)
+        if (!isGhostShip)
         {
             transform.LookAt(LookatTransform);
         }
@@ -64,6 +84,11 @@ public class Boatnavigation : MonoBehaviour
         yield return new WaitForSeconds(2);
         gameObject.GetComponent<NavMeshAgent>().isStopped = true;
         gameObject.GetComponent<Boatnavigation>().enabled = false;
+
+        if (isGhostShip)
+        {
+            Destroy(gameObject);
+        }
     }
 }
 
