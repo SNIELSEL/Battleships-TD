@@ -36,5 +36,20 @@ public class AudioMixerScript : MonoBehaviour
         mixer.SetFloat("MusicVolume", volume);
     }
 
+    public void MasterVolumeValue(float volume)
+    {
+        mixer.SetFloat("MasterVolume", volume);
+    }
+
+    public void SFXVolumeValue(float volume) 
+    {
+        mixer.SetFloat("SFXVolume", volume);
+    }
+
+    public void UiVolumeValue(float volume)
+    {
+        mixer.SetFloat("UiVolume", volume);
+    }
+
 
 }
