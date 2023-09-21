@@ -333,7 +333,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1001 &632204347
+--- !u!1001 &1552945272
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -344,17 +344,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a90bd1c835ebfdd4690e409c15552313,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -56.204567
+      value: -68.11034
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a90bd1c835ebfdd4690e409c15552313,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.17
+      value: 0.00000023841858
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a90bd1c835ebfdd4690e409c15552313,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.20073
+      value: -36.318687
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a90bd1c835ebfdd4690e409c15552313,
         type: 3}
@@ -369,12 +369,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a90bd1c835ebfdd4690e409c15552313,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a90bd1c835ebfdd4690e409c15552313,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a90bd1c835ebfdd4690e409c15552313,
         type: 3}
@@ -407,4 +407,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 329968555}
   - {fileID: 395969691}
-  - {fileID: 632204347}
+  - {fileID: 1552945272}
