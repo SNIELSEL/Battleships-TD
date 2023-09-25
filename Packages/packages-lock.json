@@ -9,13 +9,6 @@
       },
       "hash": "9382d9261621ab148f2b67fa0810d94451018667"
     },
-    "com.pimeko.ai-name-generator": {
-      "version": "https://github.com/Pimeko/AI-Name-Generator---Unity.git?path=Assets",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "aef05294cea3dcc9e5315cd682d58b70ca9211aa"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
