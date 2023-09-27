@@ -18,6 +18,7 @@ TagManager:
   - GhostShip2
   - GhostShip3
   - WaterLayer
+  - Target
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
+  - Obstruction
+  - Target
   - 
   - 
   - 
