@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 3595633151325327527}
   - component: {fileID: 4961327526174575263}
   - component: {fileID: -5141522794786404179}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Destroyer Down Right
-  m_TagString: Untagged
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,12 +188,14 @@ MonoBehaviour:
   ShipClass: Destroyer
   description: 
   type: Light
+  shipIdentifyer: BR
   health: 100
   damage: {x: 3, y: 5}
-  attackSpeed: 2.5
+  attackSpeed: 1
   armor: 20
   speed: 5
   respawnTime: 1
+  gunFov: {fileID: 6939942610209876483}
   nameDisplay: {fileID: 6722712641701281562}
 --- !u!64 &-5141522794786404179
 MeshCollider:
@@ -225,6 +227,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4316200948754975820}
     m_Modifications:
+    - target: {fileID: 2784948000971506601, guid: 695c2208883b75845b0901df3eb85f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2796862346728346269, guid: 695c2208883b75845b0901df3eb85f2b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -332,8 +339,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8117743027140900619, guid: 695c2208883b75845b0901df3eb85f2b,
         type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117743027140900619, guid: 695c2208883b75845b0901df3eb85f2b,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638366387507539597, guid: 695c2208883b75845b0901df3eb85f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -364,6 +381,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GunFov
+      objectReference: {fileID: 0}
+    - target: {fileID: 783570850270248982, guid: 65fd106019f79b14a960c2a10d6e9a48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1642907452987228555, guid: 65fd106019f79b14a960c2a10d6e9a48,
         type: 3}
@@ -420,6 +442,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65fd106019f79b14a960c2a10d6e9a48, type: 3}
+--- !u!114 &6939942610209876483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1767000764492175590, guid: 65fd106019f79b14a960c2a10d6e9a48,
+    type: 3}
+  m_PrefabInstance: {fileID: 8703774579468694245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b95628e974cc784eb54aaaacb85ebbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7928238883079926638 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1642907452987228555, guid: 65fd106019f79b14a960c2a10d6e9a48,

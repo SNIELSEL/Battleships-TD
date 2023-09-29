@@ -18,9 +18,9 @@ GameObject:
   - component: {fileID: 2751709754671794825}
   - component: {fileID: 5458030921095580329}
   - component: {fileID: -3650499606404090576}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Destroyer Down Left
-  m_TagString: Untagged
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,12 +208,14 @@ MonoBehaviour:
   ShipClass: Destroyer
   description: 
   type: Light
+  shipIdentifyer: BL
   health: 100
   damage: {x: 3, y: 5}
-  attackSpeed: 2.5
+  attackSpeed: 1
   armor: 20
   speed: 5
   respawnTime: 1
+  gunFov: {fileID: 5486524784811104390}
   nameDisplay: {fileID: 9014553155206710450}
 --- !u!64 &-3650499606404090576
 MeshCollider:
@@ -249,6 +251,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2784948000971506601, guid: 695c2208883b75845b0901df3eb85f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2796862346728346269, guid: 695c2208883b75845b0901df3eb85f2b,
         type: 3}
@@ -357,8 +364,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8117743027140900619, guid: 695c2208883b75845b0901df3eb85f2b,
         type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117743027140900619, guid: 695c2208883b75845b0901df3eb85f2b,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638366387507539597, guid: 695c2208883b75845b0901df3eb85f2b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -389,6 +406,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GunFov
+      objectReference: {fileID: 0}
+    - target: {fileID: 783570850270248982, guid: 65fd106019f79b14a960c2a10d6e9a48,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1642907452987228555, guid: 65fd106019f79b14a960c2a10d6e9a48,
         type: 3}
@@ -451,3 +473,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6098341103200403552}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5486524784811104390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1767000764492175590, guid: 65fd106019f79b14a960c2a10d6e9a48,
+    type: 3}
+  m_PrefabInstance: {fileID: 6098341103200403552}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b95628e974cc784eb54aaaacb85ebbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
