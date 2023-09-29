@@ -191,6 +191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: kagero destroyer (boot)
       objectReference: {fileID: 0}
+    - target: {fileID: 2786534777698132407, guid: 376a491d3ad71994c9f3d59aa2412acb,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0acddcf3cd7d6344ba86c923621d292, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
