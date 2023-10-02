@@ -25,7 +25,7 @@ public class BasePlane : MonoBehaviour
     {
         if(health <= 0)
         {
-            Destroy(gameObject);
+            this.GetComponent<WateverVolumeFloater>().enabled = false;
         }
     }
 }

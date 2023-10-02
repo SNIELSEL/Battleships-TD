@@ -81,8 +81,7 @@ public class Boatnavigation : MonoBehaviour
 
     public IEnumerator DisengageGhost()
     {
-        yield return new WaitForSeconds(5);
-        //transform.rotation = new Quaternion(0, 0, 0, 0);
+        yield return new WaitForSeconds(2);
         this.GetComponent<WateverVolumeFloater>().WaterVolumeHelper = GameObject.FindGameObjectWithTag("WaterLayer").GetComponent<WaterVolumeHelper>();
         gameObject.GetComponent<NavMeshAgent>().isStopped = true;
         gameObject.GetComponent<Boatnavigation>().enabled = false;
