@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1867512007206249645}
   - component: {fileID: 1703449228271762880}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: GunFov
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,6 +55,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   canSeePlayer: 0
+  isShip: 1
 --- !u!1 &612359469516809050
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +73,7 @@ GameObject:
   - component: {fileID: 4326265141675200773}
   - component: {fileID: 9091912967120515726}
   - component: {fileID: 6262817269343177634}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: kagero destroyer UR
   m_TagString: Ship
   m_Icon: {fileID: 0}
@@ -106,7 +107,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 612359469516809050}
-  m_Mesh: {fileID: -7196802604745430461, guid: 376a491d3ad71994c9f3d59aa2412acb, type: 3}
+  m_Mesh: {fileID: -7196802604745430461, guid: 8b5e49881b51a4243a0ef8c32a1ee329, type: 3}
 --- !u!23 &8861976668649496745
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -288,7 +289,7 @@ GameObject:
   - component: {fileID: 4407671392263262088}
   - component: {fileID: 4343588150910699015}
   - component: {fileID: 2228144080288527376}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +364,7 @@ GameObject:
   - component: {fileID: 5621307280195008049}
   - component: {fileID: 3110922452338051659}
   - component: {fileID: 3933852436006012847}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: kagero destroyer (kannon)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -446,7 +447,7 @@ GameObject:
   - component: {fileID: 2417965903701204265}
   - component: {fileID: 1358530494230392693}
   - component: {fileID: 3911213288434437303}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: kagero destroyer (kannon) (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -529,7 +530,7 @@ GameObject:
   - component: {fileID: 1088361706797073507}
   - component: {fileID: 5260915066437128233}
   - component: {fileID: 1611740476081840712}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +666,7 @@ GameObject:
   - component: {fileID: 2782647739282809332}
   - component: {fileID: 2084458802724506469}
   - component: {fileID: 1216025918017132056}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,7 +768,7 @@ GameObject:
   - component: {fileID: 4001515914879961127}
   - component: {fileID: 1677074448986809830}
   - component: {fileID: 2282270969771740600}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: kagero destroyer (kannon) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

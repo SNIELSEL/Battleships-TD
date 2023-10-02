@@ -18,8 +18,8 @@ TagManager:
   - GhostShip2
   - GhostShip3
   - WaterLayer
-  - Target
   - Ship
+  - Plane
   layers:
   - Default
   - TransparentFX

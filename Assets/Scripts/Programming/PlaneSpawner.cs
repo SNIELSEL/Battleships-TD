@@ -18,7 +18,8 @@ public class PlaneSpawner : MonoBehaviour
     public GameObject[] shipsOnBoard;
     private GameObject[] shipChecker;
     public string[] shipIdentifiers;
-    private bool multipleShipsDetected;
+    private int emptyShipCount;
+    public int locationInt;
     void Start()
     {
         gameTimer = 1800;
@@ -61,14 +62,23 @@ public class PlaneSpawner : MonoBehaviour
                 planeSpawnTimer[i] = beginPlaneSpawnTimer[i];
             }
 
-            if (multipleShipsDetected)
+            if (shipsOnBoard[0] != null || shipsOnBoard[1] != null)
             {
-                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[(int)Random.Range(locationSelector.x,locationSelector.y)].transform);
+                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[0].transform.position, spawnlocations[0].transform.rotation);
+                locationInt = 0;
             }
-            else
+            else if (shipsOnBoard[2] != null || emptyShipCount == 5)
             {
-                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[(int)locationSelector.y].transform.position, spawnlocations[(int)locationSelector.y].transform.rotation);
+                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[1].transform.position, spawnlocations[1].transform.rotation);
+                locationInt = 1;
             }
+            else if (shipsOnBoard[3] != null || shipsOnBoard[4] != null)
+            {
+                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[2].transform.position, spawnlocations[2].transform.rotation);
+                locationInt = 2;
+            }
+
+            emptyShipCount = 0;
         }
     }
 
@@ -100,25 +110,12 @@ public class PlaneSpawner : MonoBehaviour
             }
         }
 
-        if (shipsOnBoard[0] != null || shipsOnBoard[1] != null && shipsOnBoard[2] == null && shipsOnBoard[3] == null || shipsOnBoard[4] == null)
+        for (int i = 0; i < shipsOnBoard.Length; i++)
         {
-            multipleShipsDetected = false;
-            locationSelector.y = 0;
-        }
-        else if (shipsOnBoard[0] == null || shipsOnBoard[1] == null && shipsOnBoard[2] == null && shipsOnBoard[3] == null || shipsOnBoard[4] == null)
-        {
-            multipleShipsDetected = false;
-            locationSelector.y = 1;
-        }
-        else if (shipsOnBoard[0] == null || shipsOnBoard[1] == null && shipsOnBoard[2] != null && shipsOnBoard[3] == null || shipsOnBoard[4] == null)
-        {
-            multipleShipsDetected = false;
-            locationSelector.y = 1;
-        }
-        else if (shipsOnBoard[0] == null || shipsOnBoard[1] == null && shipsOnBoard[2] == null && shipsOnBoard[3] != null || shipsOnBoard[4] != null)
-        {
-            multipleShipsDetected = false;
-            locationSelector.y = 2;
+            if (shipsOnBoard[i] == null)
+            {
+                emptyShipCount++;
+            }
         }
     }
 }
