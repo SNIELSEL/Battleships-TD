@@ -18,6 +18,8 @@ public class GunFov : MonoBehaviour
 
     public bool canSeePlayer;
 
+    public bool isShip;
+
     public void Start()
     {
         StartCoroutine(ScanForPlanes());
@@ -84,20 +86,42 @@ public class GunFov : MonoBehaviour
             nearestDistance = 10000;
         }
 
-        GameObject[] allObjects = GameObject.FindGameObjectsWithTag("Target");
-
-        for (int i = 0; i < allObjects.Length; i++)
+        if (isShip)
         {
-            Objectscanradius = Vector3.Distance(this.transform.position, allObjects[i].transform.position);
+            GameObject[] allObjects = GameObject.FindGameObjectsWithTag("Plane");
 
-            if (Objectscanradius < nearestDistance)
+            for (int i = 0; i < allObjects.Length; i++)
             {
-                playerRef = allObjects[i];
-                nearestDistance = Objectscanradius;
+                Objectscanradius = Vector3.Distance(this.transform.position, allObjects[i].transform.position);
+
+                if (Objectscanradius < nearestDistance)
+                {
+                    playerRef = allObjects[i];
+                    nearestDistance = Objectscanradius;
+                }
+                else
+                {
+                    canSeePlayer = false;
+                }
             }
-            else
+        }
+        else
+        {
+            GameObject[] allObjects = GameObject.FindGameObjectsWithTag("Ship");
+
+            for (int i = 0; i < allObjects.Length; i++)
             {
-                canSeePlayer = false;
+                Objectscanradius = Vector3.Distance(this.transform.position, allObjects[i].transform.position);
+
+                if (Objectscanradius < nearestDistance)
+                {
+                    playerRef = allObjects[i];
+                    nearestDistance = Objectscanradius;
+                }
+                else
+                {
+                    canSeePlayer = false;
+                }
             }
         }
     }

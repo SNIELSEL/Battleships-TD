@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 5932029840813626198}
   - component: {fileID: 8390848166632756379}
   - component: {fileID: -8149039938570565976}
+  - component: {fileID: 4543664666258333996}
   m_Layer: 8
   m_Name: Bomber
-  m_TagString: Target
+  m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +135,7 @@ MonoBehaviour:
   damage: {x: 0, y: 0}
   attackSpeed: 0
   armor: 25
-  speed: 2
+  speed: 12
 --- !u!64 &8390848166632756379
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -173,3 +174,27 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &4543664666258333996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6547387973470704427}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b95628e974cc784eb54aaaacb85ebbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objectscanradius: 200
+  radius: 3.07
+  angle: 0
+  playerRef: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 256
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 128
+  canSeePlayer: 0
+  isShip: 0
