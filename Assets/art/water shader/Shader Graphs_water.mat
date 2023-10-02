@@ -41,8 +41,8 @@ Material:
     - _Dept: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _foamAmount: 0.4
-    - _foamCutoff: 0.5
+    - _foamAmount: 7.8
+    - _foamCutoff: 30
     - _foamScale: 30
     - _foamSpeed: 0.1
     - _rippleDensity: 20
