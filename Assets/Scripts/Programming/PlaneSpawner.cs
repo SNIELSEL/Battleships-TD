@@ -56,15 +56,18 @@ public class PlaneSpawner : MonoBehaviour
         {
             ScanForShips();
 
-            planeSpawnTimer = beginPlaneSpawnTimer;
+            for (int i = 0; i < planeSpawnTimer.Length; i++)
+            {
+                planeSpawnTimer[i] = beginPlaneSpawnTimer[i];
+            }
 
             if (multipleShipsDetected)
             {
-            Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[(int)Random.Range(locationSelector.x,locationSelector.y)].transform);
+                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[(int)Random.Range(locationSelector.x,locationSelector.y)].transform);
             }
             else
             {
-                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[(int)locationSelector.y].transform);
+                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[(int)locationSelector.y].transform.position, spawnlocations[(int)locationSelector.y].transform.rotation);
             }
         }
     }
