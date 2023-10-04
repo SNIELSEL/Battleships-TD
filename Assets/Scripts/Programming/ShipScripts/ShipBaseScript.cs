@@ -69,7 +69,7 @@ public class ShipBaseScript : MonoBehaviour
     {
         attackSpeed -= Time.deltaTime;
 
-        if(attackSpeed <= 0)
+        if(attackSpeed <= 0 && enemy != null)
         {
             attackSpeed = beginAttackSpeed;
 

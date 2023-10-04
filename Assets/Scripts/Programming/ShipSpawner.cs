@@ -30,6 +30,17 @@ public class ShipSpawner : MonoBehaviour
     [Header("UI")]
     public GameObject[] shipSpawnUI;
 
+    public bool scriptShipSpawn;
+    public void Update()
+    {
+        if (!scriptShipSpawn)
+        {
+            StartCoroutine(TestShipSpawner());
+
+            scriptShipSpawn = true;
+        }
+    }
+
     public void locationPicker(int locationNumber)
     {
        locationToSpawn = locationNumber;
@@ -71,5 +82,12 @@ public class ShipSpawner : MonoBehaviour
         {
             Instantiate(shipsTopRight[shipToSpawn], shipSpawnLocations[locationToSpawn].transform.position, shipsTopRight[shipToSpawn].transform.rotation);
         }
+    }
+
+    public IEnumerator TestShipSpawner()
+    {
+        yield return new WaitForSeconds(2);
+
+        shipInstantiator();
     }
 }

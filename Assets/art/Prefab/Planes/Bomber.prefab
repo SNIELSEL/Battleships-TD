@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 6253924824984984839}
   - component: {fileID: 6384109324887826650}
   - component: {fileID: 4667645206610915759}
-  - component: {fileID: 5932029840813626198}
+  - component: {fileID: -2571390000965956698}
   - component: {fileID: 8390848166632756379}
-  - component: {fileID: -8149039938570565976}
   - component: {fileID: 4543664666258333996}
   m_Layer: 8
   m_Name: Bomber
-  m_TagString: Plane
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +114,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5932029840813626198
+--- !u!114 &-2571390000965956698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,18 +123,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6547387973470704427}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807cb8e35f73fcc4db41bc1006f5ed52, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a72a5ac57d29964b97255edbaf1acc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Temp
-  ShipClass: Plane
-  description: TestPlane
-  type: TestObject
-  health: 25
-  damage: {x: 0, y: 0}
+  name: 
+  planeClass: Bomber
+  description: 
+  type: American
+  projectile: {fileID: 7396471479203092008, guid: 8f9cea67f323e054a9b1f389f5f1749a,
+    type: 3}
+  health: 50
+  damage: {x: 15, y: 25}
   attackSpeed: 0
   armor: 25
   speed: 12
+  ammo: 1
 --- !u!64 &8390848166632756379
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -158,22 +160,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4579454407841743219, guid: 564665a872880ed4198a88247b5e1cce, type: 3}
---- !u!114 &-8149039938570565976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6547387973470704427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a42252458df2e7e4ea924ebccf0c117a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinations:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &4543664666258333996
 MonoBehaviour:
   m_ObjectHideFlags: 0

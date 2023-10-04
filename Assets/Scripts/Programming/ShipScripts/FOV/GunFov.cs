@@ -86,43 +86,19 @@ public class GunFov : MonoBehaviour
             nearestDistance = 10000;
         }
 
-        if (isShip)
-        {
-            GameObject[] allObjects = GameObject.FindGameObjectsWithTag("Plane");
-
-            for (int i = 0; i < allObjects.Length; i++)
+         GameObject[] allObjects = GameObject.FindGameObjectsWithTag("Target");
+         for (int i = 0; i < allObjects.Length; i++)
+         {
+            Objectscanradius = Vector3.Distance(this.transform.position, allObjects[i].transform.position);
+             if (Objectscanradius < nearestDistance)
             {
-                Objectscanradius = Vector3.Distance(this.transform.position, allObjects[i].transform.position);
-
-                if (Objectscanradius < nearestDistance)
-                {
-                    playerRef = allObjects[i];
-                    nearestDistance = Objectscanradius;
-                }
-                else
-                {
-                    canSeePlayer = false;
-                }
+                playerRef = allObjects[i];
+                nearestDistance = Objectscanradius;
             }
-        }
-        else
-        {
-            GameObject[] allObjects = GameObject.FindGameObjectsWithTag("Ship");
-
-            for (int i = 0; i < allObjects.Length; i++)
+            else
             {
-                Objectscanradius = Vector3.Distance(this.transform.position, allObjects[i].transform.position);
-
-                if (Objectscanradius < nearestDistance)
-                {
-                    playerRef = allObjects[i];
-                    nearestDistance = Objectscanradius;
-                }
-                else
-                {
-                    canSeePlayer = false;
-                }
+                canSeePlayer = false;
             }
-        }
+         }
     }
 }
