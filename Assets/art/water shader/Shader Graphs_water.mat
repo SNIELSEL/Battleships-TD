@@ -48,8 +48,8 @@ Material:
     - _rippleDensity: 20
     - _rippleSlimness: 10
     - _rippleSpeed: 3
-    - _waveScale: 3
-    - _waveSpeed: 0.1
+    - _waveScale: 1
+    - _waveSpeed: 0.2
     m_Colors:
     - _baseColor: {r: 0.2295745, g: 0.4549392, b: 0.7264151, a: 0}
     - _foamColor: {r: 1.3584906, g: 1.3584906, b: 1.3584906, a: 1}
