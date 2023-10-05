@@ -152,3 +152,6 @@ MonoBehaviour:
   - {fileID: 7692766104950167920, guid: 97e2c19f51eb43044915ed2a884b8571, type: 3}
   - {fileID: 1049219009958987624, guid: e6db7cb0f23f43e4a8db46d7cb597350, type: 3}
   planeSpawner: {fileID: 0}
+  damage: 0
+  explosion: {fileID: 2866233192161719087, guid: c81aa67deca6d0d42a0cc1dc75981235,
+    type: 3}

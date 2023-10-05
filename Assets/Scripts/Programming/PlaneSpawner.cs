@@ -20,8 +20,11 @@ public class PlaneSpawner : MonoBehaviour
     public string[] shipIdentifiers;
     private int emptyShipCount;
     public int locationInt;
+    public Transform parentObject;
     void Start()
     {
+        parentObject = GameObject.Find("PlanesParent").transform;
+
         gameTimer = 1800;
 
         for (int i = 0; i < beginPlaneSpawnTimer.Length; i++)
@@ -64,17 +67,17 @@ public class PlaneSpawner : MonoBehaviour
 
             if (shipsOnBoard[0] != null || shipsOnBoard[1] != null)
             {
-                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[0].transform.position, spawnlocations[0].transform.rotation);
+                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[0].transform.position, spawnlocations[0].transform.rotation, parentObject);
                 locationInt = 0;
             }
             else if (shipsOnBoard[2] != null || emptyShipCount == 5)
             {
-                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[1].transform.position, spawnlocations[1].transform.rotation);
+                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[1].transform.position, spawnlocations[1].transform.rotation, parentObject);
                 locationInt = 1;
             }
             else if (shipsOnBoard[3] != null || shipsOnBoard[4] != null)
             {
-                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[2].transform.position, spawnlocations[2].transform.rotation);
+                Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[2].transform.position, spawnlocations[2].transform.rotation, parentObject);
                 locationInt = 2;
             }
 

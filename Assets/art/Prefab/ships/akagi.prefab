@@ -675,10 +675,10 @@ GameObject:
   - component: {fileID: 5138093374724419355}
   - component: {fileID: 3436741217414063153}
   - component: {fileID: 1077816253260959385}
-  - component: {fileID: 6727258837350938867}
-  m_Layer: 8
+  - component: {fileID: 6436859949091799159}
+  m_Layer: 3
   m_Name: akagi boot (het frame)
-  m_TagString: Untagged
+  m_TagString: PlaneCarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -748,8 +748,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6727258837350938867
-MeshCollider:
+--- !u!65 &6436859949091799159
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -766,10 +766,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2124705421725058983, guid: ea481c02b0e607a48895dcd412e3030c, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 54.610912, y: 34.54, z: 270.00006}
+  m_Center: {x: 0.0027648038, y: 2.3, z: 18.129229}
 --- !u!1 &7057757865819059535
 GameObject:
   m_ObjectHideFlags: 0
@@ -867,7 +866,7 @@ GameObject:
   - component: {fileID: 650112821206018408}
   m_Layer: 8
   m_Name: akagi
-  m_TagString: Untagged
+  m_TagString: PlaneCarrier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -939,7 +938,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!114 &650112821206018408
 MonoBehaviour:
@@ -957,7 +956,7 @@ MonoBehaviour:
   ShipClass: AircraftCarrier
   description: HomeBase
   type: Spawner
-  shipIdentifyer: BASE
+  shipIdentifyer: Base
   health: 500
   damage: {x: 2, y: 4}
   attackSpeed: 2
@@ -1218,7 +1217,12 @@ PrefabInstance:
     - target: {fileID: 1767000764492175590, guid: 65fd106019f79b14a960c2a10d6e9a48,
         type: 3}
       propertyPath: angle
-      value: 150
+      value: 220
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767000764492175590, guid: 65fd106019f79b14a960c2a10d6e9a48,
+        type: 3}
+      propertyPath: isShip
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1767000764492175590, guid: 65fd106019f79b14a960c2a10d6e9a48,
         type: 3}

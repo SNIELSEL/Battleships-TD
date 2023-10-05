@@ -13,6 +13,7 @@ public class BasePlane : MonoBehaviour
     public string description;
     public string type;
     public GameObject projectile;
+    private GameObject spawnedProjectile;
 
     [Header("stats")]
     public float health;
@@ -87,7 +88,9 @@ public class BasePlane : MonoBehaviour
         {
             ammo--;
 
-            Instantiate(projectile, transform.position, transform.rotation, parentObject);
+            spawnedProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
+            spawnedProjectile.GetComponent<BombMomentum>().damage = (int)Random.Range(damage.x,damage.y);
+
         }
     }
 }

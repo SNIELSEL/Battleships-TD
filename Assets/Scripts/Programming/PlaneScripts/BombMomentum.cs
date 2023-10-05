@@ -10,6 +10,10 @@ public class BombMomentum : MonoBehaviour
 
     public PlaneSpawner planeSpawner;
 
+    public int damage;
+
+    public ParticleSystem explosion;
+
     public void Start()
     {
         planeSpawner = GameObject.Find("Keep").GetComponent<PlaneSpawner>();
@@ -27,7 +31,19 @@ public class BombMomentum : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ship" || collision.gameObject.tag == "PlaneCarrier")
         {
-            //scollision.gameObject.GetComponent<ShipBaseScript>().health -= 
+            gameObject.SetActive(false);
+            Instantiate(explosion, transform.position, transform.rotation);
+
+            if(collision.gameObject.GetComponent<ShipBaseScript>().armor <= 0)
+            {
+                collision.gameObject.GetComponent<ShipBaseScript>().health -= damage;
+            }
+            else
+            {
+                collision.gameObject.GetComponent<ShipBaseScript>().armor -= damage;
+            }
+
+            Destroy(this.gameObject);
         }
     }
 }
