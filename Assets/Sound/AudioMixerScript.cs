@@ -3,29 +3,38 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class AudioMixerScript : MonoBehaviour
 {
-    public Slider masterSlider, audioSlider, sfxSlider, uiSlider;
-    public GameObject slider;
+    public Slider masterSlider, musicSlider, sfxSlider, uiSlider;
     public AudioMixer mixer;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         MixerVolume();
 
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
-            //mixer.SetFloat("Musicvolume");
+            mixer.SetFloat("Musicvolume", PlayerPrefs.GetFloat("MusicVolume"));
+            mixer.SetFloat("Mastervolume", PlayerPrefs.GetFloat("MasterVolume"));
+            mixer.SetFloat("SFXvolume", PlayerPrefs.GetFloat("SFXVolume"));
+            mixer.SetFloat("UIvolume", PlayerPrefs.GetFloat("UIVolume"));
+        }
+
+        else
+        {
+            SetSliders();
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SetSliders()
     {
-
+        masterSlider.value = .5f;
+        musicSlider.value = .5f;
+        sfxSlider.value = .5f;
+        uiSlider.value = .5f;
     }
 
     public void MixerVolume()
@@ -39,7 +48,7 @@ public class AudioMixerScript : MonoBehaviour
     public void MusicVolumeValue(float volume)
     {
         mixer.SetFloat("MusicVolume", volume);
-        PlayerPrefs.SetFloat("MusicVolume", masterSlider.value);
+        PlayerPrefs.SetFloat("MusicVolume", musicSlider.value);
     }
 
     public void MasterVolumeValue(float volume)
@@ -51,13 +60,13 @@ public class AudioMixerScript : MonoBehaviour
     public void SFXVolumeValue(float volume) 
     {
         mixer.SetFloat("SFXVolume", volume);
-        PlayerPrefs.SetFloat("SFXVolume", masterSlider.value);
+        PlayerPrefs.SetFloat("SFXVolume", sfxSlider.value);
     }
 
     public void UiVolumeValue(float volume)
     {
         mixer.SetFloat("UiVolume", volume);
-        PlayerPrefs.SetFloat("UIVolume", masterSlider.value);
+        PlayerPrefs.SetFloat("UIVolume", uiSlider.value);
     }
 
 

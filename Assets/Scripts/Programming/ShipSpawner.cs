@@ -39,11 +39,11 @@ public class ShipSpawner : MonoBehaviour
     }
     public void Update()
     {
-        if (!scriptShipSpawn)
+        if (scriptShipSpawn)
         {
             StartCoroutine(TestShipSpawner());
 
-            scriptShipSpawn = true;
+            scriptShipSpawn = false;
         }
     }
 

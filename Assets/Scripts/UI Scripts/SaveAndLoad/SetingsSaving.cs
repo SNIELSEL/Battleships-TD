@@ -10,7 +10,7 @@ public class SetingsSaving : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         

@@ -132,12 +132,14 @@ MonoBehaviour:
   type: American
   projectile: {fileID: 7396471479203092008, guid: 8f9cea67f323e054a9b1f389f5f1749a,
     type: 3}
-  health: 50
+  health: 25
   damage: {x: 15, y: 25}
   attackSpeed: 0
-  armor: 25
+  armor: 0
   speed: 12
   ammo: 1
+  isAttacking: 0
+  parentObject: {fileID: 0}
 --- !u!64 &8390848166632756379
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -183,4 +185,3 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   canSeePlayer: 0
-  isShip: 0
