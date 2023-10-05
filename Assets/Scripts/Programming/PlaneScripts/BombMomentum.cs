@@ -14,8 +14,11 @@ public class BombMomentum : MonoBehaviour
 
     public ParticleSystem explosion;
 
+    public Transform parentObject;
     public void Start()
     {
+        parentObject = GameObject.Find("ParticleParent").transform;
+
         planeSpawner = GameObject.Find("Keep").GetComponent<PlaneSpawner>();
 
         bombLoc[0] = GameObject.Find("BombPath1");
@@ -32,7 +35,7 @@ public class BombMomentum : MonoBehaviour
         if(collision.gameObject.tag == "Ship" || collision.gameObject.tag == "PlaneCarrier")
         {
             gameObject.SetActive(false);
-            Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(explosion, transform.position, transform.rotation, parentObject);
 
             if(collision.gameObject.GetComponent<ShipBaseScript>().armor <= 0)
             {

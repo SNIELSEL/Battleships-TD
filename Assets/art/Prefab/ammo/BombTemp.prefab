@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 2b8f9f36be3f17941865a35db7c8f805, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,5 +153,5 @@ MonoBehaviour:
   - {fileID: 1049219009958987624, guid: e6db7cb0f23f43e4a8db46d7cb597350, type: 3}
   planeSpawner: {fileID: 0}
   damage: 0
-  explosion: {fileID: 2866233192161719087, guid: c81aa67deca6d0d42a0cc1dc75981235,
+  explosion: {fileID: 5098290221254473955, guid: 7b41505fea00c1645b6b570a2a28635d,
     type: 3}

@@ -18,7 +18,7 @@ public class AudioMixerScript : MonoBehaviour
 
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
-            mixer.SetFloat("Musicvolume")
+            //mixer.SetFloat("Musicvolume");
         }
     }
 

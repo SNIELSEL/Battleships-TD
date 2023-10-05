@@ -18,8 +18,6 @@ public class GunFov : MonoBehaviour
 
     public bool canSeePlayer;
 
-    public bool isShip;
-
     public void Start()
     {
         StartCoroutine(ScanForPlanes());
