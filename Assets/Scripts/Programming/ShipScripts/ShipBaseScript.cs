@@ -26,7 +26,8 @@ public class ShipBaseScript : MonoBehaviour
     [Header("Etc")]
     public int respawnTime;
     public GunFov gunFov;
-    public Transform[] cannons;
+    public Transform cannonParent;
+    public List<Transform> cannons;
     public GameObject shootEffect;
 
     //namedisplay
@@ -42,6 +43,11 @@ public class ShipBaseScript : MonoBehaviour
 
     public void Start()
     {
+        for (int i = 0; i < cannonParent.childCount; i++)
+        {
+            cannons.Add(cannonParent.GetChild(i));
+        }
+
         beginAttackSpeed = attackSpeed;
     }
 
@@ -71,13 +77,13 @@ public class ShipBaseScript : MonoBehaviour
     {
         attackSpeed -= Time.deltaTime;
 
-        for (int i = 0; i < cannons.Length; i++)
-        {
-            Instantiate(shootEffect, cannons[i].position, cannons[i].rotation, GameObject.Find("ParticleParent").transform);
-        }
-
         if(attackSpeed <= 0 && enemy != null)
         {
+            for (int i = 0; i < cannons.Count; i++)
+            {
+                Instantiate(shootEffect, cannons[i].position, cannons[i].rotation, GameObject.Find("ParticleParent").transform);
+            }
+
             attackSpeed = beginAttackSpeed;
 
             damageDone = Random.Range((int)damage.x, (int)damage.y);

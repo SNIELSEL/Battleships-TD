@@ -53,12 +53,12 @@ public class ShipSpawner : MonoBehaviour
     }
     public void shipPicker(int shipNumber)
     {
-        shipSpawnUI[locationToSpawn].SetActive(false);
         shipToSpawn = shipNumber;
     }
 
     public void shipInstantiator()
     {
+        shipSpawnUI[locationToSpawn].SetActive(false);
         if (locationToSpawn == 0)
         {
             Instantiate(ghostShipsBottomLeft[shipToSpawn], ghostShipSpawnLocations[locationToSpawn].transform.position, ghostShipsBottomLeft[shipToSpawn].transform.rotation,parentObject);

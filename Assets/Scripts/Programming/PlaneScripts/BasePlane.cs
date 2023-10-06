@@ -28,6 +28,7 @@ public class BasePlane : MonoBehaviour
     //private info
     private Transform[] destinations;
     private Transform[] endDestinations;
+    public ParticleSystem explosion;
 
     private Vector3 position;
     private int pathNumber;
@@ -37,9 +38,13 @@ public class BasePlane : MonoBehaviour
     private int destinationNumber;
     public bool isAttacking;
     public Transform parentObject;
+    public Transform bombObject;
+
 
     public void Start()
     {
+        bombObject = GameObject.Find("ParticleParent").transform;
+
         parentObject = GameObject.Find("BombParent").transform;
 
         spawner = GameObject.Find("Keep").GetComponent<PlaneSpawner>();
@@ -65,6 +70,7 @@ public class BasePlane : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
+            Instantiate(explosion, transform.position, transform.rotation, bombObject);
         }
 
         if (Vector3.Distance(transform.position, destinations[pathNumber].position) <= 3 && destinationNumber == 0)
