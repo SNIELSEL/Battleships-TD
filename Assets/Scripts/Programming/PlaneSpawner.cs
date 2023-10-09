@@ -21,6 +21,7 @@ public class PlaneSpawner : MonoBehaviour
     private int emptyShipCount;
     public int locationInt;
     public Transform parentObject;
+    public int randomLoc;
     void Start()
     {
         parentObject = GameObject.Find("PlanesParent").transform;
@@ -58,12 +59,16 @@ public class PlaneSpawner : MonoBehaviour
 
         if (planeSpawnTimer[gameStage] <= 0)
         {
-            ScanForShips();
+            randomLoc = Random.Range(0, 3);
+
+            Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[randomLoc].transform.position, spawnlocations[randomLoc].transform.rotation, parentObject);
 
             for (int i = 0; i < planeSpawnTimer.Length; i++)
             {
                 planeSpawnTimer[i] = beginPlaneSpawnTimer[i];
             }
+
+            /*ScanForShips();
 
             if (shipsOnBoard[0] != null || shipsOnBoard[1] != null)
             {
@@ -81,11 +86,11 @@ public class PlaneSpawner : MonoBehaviour
                 locationInt = 2;
             }
 
-            emptyShipCount = 0;
+            emptyShipCount = 0;*/
         }
     }
 
-    public void ScanForShips()
+   /* public void ScanForShips()
     {
         shipChecker = GameObject.FindGameObjectsWithTag("Ship");
 
@@ -120,5 +125,5 @@ public class PlaneSpawner : MonoBehaviour
                 emptyShipCount++;
             }
         }
-    }
+    }*/
 }

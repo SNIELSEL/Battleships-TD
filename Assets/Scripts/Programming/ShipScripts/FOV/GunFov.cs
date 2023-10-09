@@ -25,7 +25,7 @@ public class GunFov : MonoBehaviour
 
     private IEnumerator ScanForPlanes()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         StartCoroutine(FOVRoutine());
         detectEnemy();

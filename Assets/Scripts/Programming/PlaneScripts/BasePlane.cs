@@ -40,9 +40,12 @@ public class BasePlane : MonoBehaviour
     public Transform parentObject;
     public Transform bombObject;
 
+    private FlagSchip flagSchip;
 
     public void Start()
     {
+        flagSchip = GameObject.Find("akagi").GetComponent<FlagSchip>();
+
         bombObject = GameObject.Find("ParticleParent").transform;
 
         parentObject = GameObject.Find("BombParent").transform;
@@ -50,7 +53,7 @@ public class BasePlane : MonoBehaviour
         spawner = GameObject.Find("Keep").GetComponent<PlaneSpawner>();
         planeStats = gameObject.GetComponent<BasePlane>();
 
-        pathNumber = spawner.locationInt;
+        pathNumber = spawner.randomLoc;
 
         position = transform.position;
 
@@ -74,6 +77,11 @@ public class BasePlane : MonoBehaviour
         }
 
         if (Vector3.Distance(transform.position, destinations[pathNumber].position) <= 3 && destinationNumber == 0)
+        {
+            destinationNumber = 1;
+        }
+
+        if (flagSchip.flagShipSunk)
         {
             destinationNumber = 1;
         }

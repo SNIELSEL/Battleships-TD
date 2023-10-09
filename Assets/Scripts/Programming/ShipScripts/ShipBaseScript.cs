@@ -53,12 +53,7 @@ public class ShipBaseScript : MonoBehaviour
 
     public void Update()
     {
-        //sinking
-        if (health <= 0)
-        {
-            this.GetComponent<WateverVolumeFloater>().enabled = false;
-        }
-
+        ShipDestroyed();
         NameSelection();
         DetectedPlayer();
     }
@@ -136,5 +131,14 @@ public class ShipBaseScript : MonoBehaviour
     public string GetRandomName()
     {
         return names[Random.Range(0, names.Length)];
+    }
+
+    public virtual void ShipDestroyed()
+    {
+        //sinking
+        if (health <= 0)
+        {
+            this.GetComponent<WateverVolumeFloater>().enabled = false;
+        }
     }
 }
