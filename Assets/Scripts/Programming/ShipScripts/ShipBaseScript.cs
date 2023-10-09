@@ -29,6 +29,7 @@ public class ShipBaseScript : MonoBehaviour
     public Transform cannonParent;
     public List<Transform> cannons;
     public GameObject shootEffect;
+    public int destroyedShipMoney;
 
     //namedisplay
     public Canvas nameDisplay;
@@ -40,9 +41,12 @@ public class ShipBaseScript : MonoBehaviour
     private float beginAttackSpeed;
     private bool nameSelected;
     private int damageDone;
+    private Money money;   
 
     public void Start()
     {
+        money = GameObject.Find("Keep").GetComponent<Money>();
+
         for (int i = 0; i < cannonParent.childCount; i++)
         {
             cannons.Add(cannonParent.GetChild(i));
@@ -139,6 +143,8 @@ public class ShipBaseScript : MonoBehaviour
         if (health <= 0)
         {
             this.GetComponent<WateverVolumeFloater>().enabled = false;
+
+            money.money += destroyedShipMoney;
         }
     }
 }

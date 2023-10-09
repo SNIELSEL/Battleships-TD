@@ -66,14 +66,14 @@ public class GunFov : MonoBehaviour
                     canSeePlayer = false;
                 }
             }
-            else
+            else if (!playerRef)
             {
                 canSeePlayer = false;
             }
         }
         else if (canSeePlayer)
         {
-            //canSeePlayer = false;
+            canSeePlayer = false;
         }
     }
 
@@ -93,7 +93,7 @@ public class GunFov : MonoBehaviour
                 playerRef = allObjects[i];
                 nearestDistance = Objectscanradius;
             }
-            else
+            else if(canSeePlayer)
             {
                 canSeePlayer = false;
             }

@@ -31,20 +31,11 @@ public class ShipSpawner : MonoBehaviour
     [Header("UI")]
     public GameObject[] shipSpawnUI;
 
-    public bool scriptShipSpawn;
+    public Money moneycript;
 
     private void Start()
     {
         parentObject = GameObject.Find("ShipParent").transform;
-    }
-    public void Update()
-    {
-        if (scriptShipSpawn)
-        {
-            StartCoroutine(TestShipSpawner());
-
-            scriptShipSpawn = false;
-        }
     }
 
     public void locationPicker(int locationNumber)
@@ -90,10 +81,24 @@ public class ShipSpawner : MonoBehaviour
         }
     }
 
-    public IEnumerator TestShipSpawner()
+    public void BuyShip()
     {
-        yield return new WaitForSeconds(2);
-
-        shipInstantiator();
+        if(shipToSpawn == 0)
+        {
+            moneycript.money -= 1000;
+        }
+        else if (shipToSpawn == 1)
+        {
+            moneycript.money -= 2500;
+        }
+        else if (shipToSpawn == 2)
+        {
+            moneycript.money -= 3000;
+        }
+        else if (shipToSpawn == 3)
+        {
+            moneycript.money -= 4000;
+        }
     }
+
 }
