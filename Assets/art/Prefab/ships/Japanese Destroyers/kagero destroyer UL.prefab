@@ -198,7 +198,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 17.6
-  m_Speed: 3
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 80
@@ -675,6 +675,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8915110246618790133}
     m_Modifications:
+    - target: {fileID: 584186870642582137, guid: e9dd757cb66fb2243a5f007fe9c4f02a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 999944252653600722, guid: e9dd757cb66fb2243a5f007fe9c4f02a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -723,6 +728,16 @@ PrefabInstance:
     - target: {fileID: 999944252653600722, guid: e9dd757cb66fb2243a5f007fe9c4f02a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3525003578090746563, guid: e9dd757cb66fb2243a5f007fe9c4f02a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8345779518462383330, guid: e9dd757cb66fb2243a5f007fe9c4f02a,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8804728107569090016, guid: e9dd757cb66fb2243a5f007fe9c4f02a,

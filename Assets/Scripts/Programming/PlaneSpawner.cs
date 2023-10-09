@@ -22,8 +22,11 @@ public class PlaneSpawner : MonoBehaviour
     public int locationInt;
     public Transform parentObject;
     public int randomLoc;
+    public FlagSchip flagSchip;
     void Start()
     {
+        planeSpawnTimer[0] = 30;
+
         parentObject = GameObject.Find("PlanesParent").transform;
 
         gameTimer = 1800;
@@ -57,8 +60,11 @@ public class PlaneSpawner : MonoBehaviour
             gameStage = 2;
         }
 
-        if (planeSpawnTimer[gameStage] <= 0)
+        if (planeSpawnTimer[gameStage] <= 0 && flagSchip.flagShipSunk == false)
         {
+            planeSpawnTimer[0] = 5;
+            beginPlaneSpawnTimer[0] = 5;
+
             randomLoc = Random.Range(0, 3);
 
             Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[randomLoc].transform.position, spawnlocations[randomLoc].transform.rotation, parentObject);

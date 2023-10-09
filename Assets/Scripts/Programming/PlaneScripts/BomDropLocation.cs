@@ -15,9 +15,4 @@ public class BomDropLocation : MonoBehaviour
             _plane.isAttacking = true;
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        _plane.isAttacking = false;
-    }
 }

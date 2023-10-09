@@ -73,7 +73,7 @@ public class GunFov : MonoBehaviour
         }
         else if (canSeePlayer)
         {
-            canSeePlayer = false;
+            //canSeePlayer = false;
         }
     }
 
