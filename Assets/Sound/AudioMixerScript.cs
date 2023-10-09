@@ -17,10 +17,10 @@ public class AudioMixerScript : MonoBehaviour
 
         if (PlayerPrefs.HasKey("MusicVolume"))
         {
-            mixer.SetFloat("Musicvolume", PlayerPrefs.GetFloat("MusicVolume"));
-            mixer.SetFloat("Mastervolume", PlayerPrefs.GetFloat("MasterVolume"));
-            mixer.SetFloat("SFXvolume", PlayerPrefs.GetFloat("SFXVolume"));
-            mixer.SetFloat("UIvolume", PlayerPrefs.GetFloat("UIVolume"));
+            masterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+            sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+            uiSlider.value = PlayerPrefs.GetFloat("UIVolume");
         }
 
         else
