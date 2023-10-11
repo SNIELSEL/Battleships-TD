@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Destroyer : ShipBaseScript
 {
-    public void Start()
+    public bool isEnemy;
+
+    public override void Start()
     {
-        destroyedShipMoney = 500;
+        base.Start();
+
+        if (isEnemy)
+        {
+            destroyedShipMoney = 500;
+        }
     }
 }

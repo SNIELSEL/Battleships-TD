@@ -43,7 +43,7 @@ public class ShipBaseScript : MonoBehaviour
     private int damageDone;
     private Money money;   
 
-    public void Start()
+    public virtual void Start()
     {
         money = GameObject.Find("Keep").GetComponent<Money>();
 
@@ -55,7 +55,7 @@ public class ShipBaseScript : MonoBehaviour
         beginAttackSpeed = attackSpeed;
     }
 
-    public void Update()
+    public virtual void Update()
     {
         ShipDestroyed();
         NameSelection();
@@ -105,7 +105,7 @@ public class ShipBaseScript : MonoBehaviour
             enemy = gunFov.playerRef;
         }
 
-        if (gunFov.canSeePlayer)
+        if (gunFov.canSeePlayer && gunFov.playerRef != null)
         {
             Shoot();
         }
