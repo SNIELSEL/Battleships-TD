@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EffectDeleter : MonoBehaviour
 {
+    public int explodeTime;
     public void Start()
     {
         StartCoroutine(DeleteEffect());
@@ -11,7 +12,7 @@ public class EffectDeleter : MonoBehaviour
 
     public IEnumerator DeleteEffect()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(explodeTime);
         Destroy(gameObject);
     }
 }

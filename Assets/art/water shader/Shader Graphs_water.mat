@@ -44,11 +44,11 @@ Material:
     - _foamAmount: -0.09
     - _foamCutoff: 30
     - _foamScale: 0
-    - _foamSpeed: 0.2
+    - _foamSpeed: 0
     - _rippleDensity: -1.63
     - _rippleSlimness: 30
     - _rippleSpeed: 2
-    - _waveScale: 1
+    - _waveScale: 0
     - _waveSpeed: 1
     m_Colors:
     - _baseColor: {r: 0, g: 0.4444976, b: 0.9622642, a: 0}

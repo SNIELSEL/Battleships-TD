@@ -47,7 +47,7 @@ public class BasePlane : MonoBehaviour
     public void Start()
     {
 
-        moneyScript = GameObject.Find("Keep").GetComponent<Money>();
+        moneyScript = GameObject.Find("ScriptManager").GetComponent<Money>();
 
         flagSchip = GameObject.Find("akagi").GetComponent<FlagSchip>();
 
@@ -57,7 +57,7 @@ public class BasePlane : MonoBehaviour
 
         if (isAttacker)
         {
-            spawner = GameObject.Find("Keep").GetComponent<PlaneSpawner>();
+            spawner = GameObject.Find("ScriptManager").GetComponent<PlaneSpawner>();
             planeStats = gameObject.GetComponent<BasePlane>();
 
             pathNumber = spawner.randomLoc;

@@ -27,7 +27,7 @@ public class Boatnavigation : MonoBehaviour
     void Start()
     {
         this.GetComponent<WateverVolumeFloater>().enabled = false;
-        shipSpawner = GameObject.Find("Keep").GetComponent<ShipSpawner>();
+        shipSpawner = GameObject.Find("ScriptManager").GetComponent<ShipSpawner>();
 
         if (!isGhostShip && LookatTransform == null && shipSpawner.locationToSpawn != 4)
         {
@@ -84,9 +84,10 @@ public class Boatnavigation : MonoBehaviour
         yield return new WaitForSeconds(5);
         //transform.rotation = new Quaternion(0, 0, 0, 0);
         this.GetComponent<WateverVolumeFloater>().WaterVolumeHelper = GameObject.FindGameObjectWithTag("WaterLayer").GetComponent<WaterVolumeHelper>();
-        gameObject.GetComponent<NavMeshAgent>().isStopped = true;
+        gameObject.GetComponent<NavMeshAgent>().isStopped = false;
         gameObject.GetComponent<Boatnavigation>().enabled = false;
-        this.GetComponent<WateverVolumeFloater>().enabled = true;
+        this.GetComponent<WateverVolumeFloater>().enabled = false;
+        GetComponent<Rigidbody>().useGravity = false;
 
         if (isGhostShip)
         {

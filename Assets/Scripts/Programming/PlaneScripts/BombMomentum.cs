@@ -19,7 +19,7 @@ public class BombMomentum : MonoBehaviour
     {
         parentObject = GameObject.Find("ParticleParent").transform;
 
-        planeSpawner = GameObject.Find("Keep").GetComponent<PlaneSpawner>();
+        planeSpawner = GameObject.Find("ScriptManager").GetComponent<PlaneSpawner>();
 
         bombLoc[0] = GameObject.Find("BombPath1");
         bombLoc[1] = GameObject.Find("BombPath2");

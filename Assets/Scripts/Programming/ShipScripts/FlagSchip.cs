@@ -15,8 +15,10 @@ public class FlagSchip : ShipBaseScript
         //sinking
         if (health <= 0)
         {
+            GetComponent<Rigidbody>().useGravity = true;
             this.GetComponent<WateverVolumeFloater>().enabled = false;
 
+            shipSunk = true;
             flagShipSunk = true;
             StartCoroutine(ShipHasSunk());
         }
@@ -29,7 +31,14 @@ public class FlagSchip : ShipBaseScript
             health = 10;
         }
 
-        base.Update();
+        if (shipSunk)
+        {
+            SinkingShipRotation();
+        }
+
+        ShipDestroyed();
+        NameSelection();
+        DetectedPlayer();
     }
 
     public IEnumerator ShipHasSunk()
