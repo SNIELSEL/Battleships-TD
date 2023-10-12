@@ -130,6 +130,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: win screen_1
+      rect:
+        serializedVersion: 2
+        x: 2127
+        y: 0
+        width: 1814
+        height: 2109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0efed859969eba34986600219a6b4a5c
+      internalID: -1127501595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -142,6 +163,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       win screen_0: 1427889382
+      win screen_1: -1127501595
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

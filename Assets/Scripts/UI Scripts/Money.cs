@@ -5,17 +5,26 @@ using UnityEngine;
 
 public class Money : MonoBehaviour
 {
-    public int money;
+    public float money;
 
     public int multiplier;
 
-    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI hUDMoneyText, shipMenuMoneyText;
 
+    private int moneyDisplayed;
     // Update is called once per frame
     void Update()
     {
-        money += (int)Time.deltaTime * multiplier;
+        if (Input.GetKeyDown(KeyCode.F11))
+        {
+            money = 99999;
+        }
 
-        moneyText.text = money.ToString();
+        money += Time.deltaTime * multiplier;
+
+        moneyDisplayed = (int)money;
+
+        hUDMoneyText.text = moneyDisplayed.ToString();
+        shipMenuMoneyText.text = moneyDisplayed.ToString();
     }
 }

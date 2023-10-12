@@ -65,7 +65,7 @@ public class PlaneSpawner : MonoBehaviour
             planeSpawnTimer[0] = 5;
             beginPlaneSpawnTimer[0] = 5;
 
-            randomLoc = Random.Range(0, 3);
+            randomLoc = Random.Range(0, 2);
 
             Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[randomLoc].transform.position, spawnlocations[randomLoc].transform.rotation, parentObject);
 

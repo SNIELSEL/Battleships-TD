@@ -19,7 +19,7 @@ public class BombMomentum : MonoBehaviour
     {
         parentObject = GameObject.Find("ParticleParent").transform;
 
-        planeSpawner = GameObject.Find("Keep").GetComponent<PlaneSpawner>();
+        planeSpawner = GameObject.Find("ScriptManager").GetComponent<PlaneSpawner>();
 
         bombLoc[0] = GameObject.Find("BombPath1");
         bombLoc[1] = GameObject.Find("BombPath2");
@@ -39,11 +39,25 @@ public class BombMomentum : MonoBehaviour
 
             if(collision.gameObject.GetComponent<ShipBaseScript>().armor <= 0)
             {
-                collision.gameObject.GetComponent<ShipBaseScript>().health -= damage;
+                if(collision.gameObject.name == "akagi")
+                {
+                    collision.gameObject.GetComponent<ShipBaseScript>().health -= damage;
+                }
+                else
+                {
+                    GameObject.Find("akagi").GetComponent<ShipBaseScript>().health -= damage;
+                }
             }
             else
             {
-                collision.gameObject.GetComponent<ShipBaseScript>().armor -= damage;
+                if (collision.gameObject.name == "akagi")
+                {
+                    collision.gameObject.GetComponent<ShipBaseScript>().armor -= damage;
+                }
+                else
+                {
+                    GameObject.Find("akagi").GetComponent<ShipBaseScript>().armor -= damage;
+                }
             }
 
             Destroy(this.gameObject);

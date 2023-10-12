@@ -8,7 +8,7 @@ public class PlaneSpawnCanvasCancel : MonoBehaviour
 
     public void onButtonClick()
     {
-        mainCanvas.enabled= true;
-        planeCanvas.enabled= false;
+        mainCanvas.gameObject.SetActive(true);
+        planeCanvas.gameObject.SetActive(false);
     }
 }

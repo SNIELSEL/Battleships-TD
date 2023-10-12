@@ -170,7 +170,7 @@ Rigidbody:
   m_GameObject: {fileID: 612359469516809050}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 9
+  m_Drag: 8
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -186,7 +186,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!195 &9209007332761787916
 NavMeshAgent:
@@ -252,12 +252,20 @@ MonoBehaviour:
   armor: 20
   speed: 5
   respawnTime: 1
+  sinkTime: 0
   gunFov: {fileID: 1703449228271762880}
   cannonParent: {fileID: 431185329266513893}
   cannons: []
   shootEffect: {fileID: 4782843193681301723, guid: 82e2a7749d8861343b741065337a3909,
     type: 3}
+  destroyedShipMoney: 500
   nameDisplay: {fileID: 2782647739282809332}
+  shipSunk: 0
+  explosionParent: {fileID: 0}
+  explosionLocations: []
+  explosion: {fileID: 0}
+  sinkRotation: {fileID: 0}
+  isEnemy: 0
 --- !u!64 &6262817269343177634
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -279,7 +287,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -7196802604745430461, guid: 376a491d3ad71994c9f3d59aa2412acb, type: 3}
+  m_Mesh: {fileID: 4493585093827132993, guid: 15685f72162797447aad72e6f5926b14, type: 3}
 --- !u!1 &3537600106887240933
 GameObject:
   m_ObjectHideFlags: 0

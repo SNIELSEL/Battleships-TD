@@ -20,7 +20,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
-  m_LockedProperties: 
+  m_LockedProperties: _waveScale
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -41,17 +41,17 @@ Material:
     - _Dept: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _foamAmount: 7.8
+    - _foamAmount: -0.09
     - _foamCutoff: 30
-    - _foamScale: 30
-    - _foamSpeed: 0.1
-    - _rippleDensity: 20
-    - _rippleSlimness: 10
-    - _rippleSpeed: 3
-    - _waveScale: 1
-    - _waveSpeed: 0.2
+    - _foamScale: 0
+    - _foamSpeed: 0
+    - _rippleDensity: -1.63
+    - _rippleSlimness: 30
+    - _rippleSpeed: 2
+    - _waveScale: 0
+    - _waveSpeed: 1
     m_Colors:
-    - _baseColor: {r: 0.2295745, g: 0.4549392, b: 0.7264151, a: 0}
+    - _baseColor: {r: 0, g: 0.4444976, b: 0.9622642, a: 0}
     - _foamColor: {r: 1.3584906, g: 1.3584906, b: 1.3584906, a: 1}
     - _fomacutoff: {r: 0, g: 0, b: 0, a: 0}
     - _rippleColor: {r: 0.854902, g: 0.96018046, b: 1, a: 0}

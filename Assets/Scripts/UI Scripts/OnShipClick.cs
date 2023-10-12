@@ -14,7 +14,7 @@ public class OnShipClick : MonoBehaviour
 
     void OnMouseDown()
     {
-        mainCanvas.enabled= false;
-        planeSpawnCanvas.enabled = true;
+        mainCanvas.gameObject.SetActive(false);
+        planeSpawnCanvas.gameObject.SetActive(true);
     }
 }
