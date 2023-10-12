@@ -51,10 +51,27 @@ public class GameTimer : MonoBehaviour
 
         secondsInt = (int)seconds;
 
-        timerSecondsText.text = secondsInt.ToString();
-        shipmenuSecond.text = secondsInt.ToString();
-        timerMinutesText.text = minutes.ToString();
-        shipMenuMinutes.text = minutes.ToString();
+        if(secondsInt >= 10)
+        {
+            timerSecondsText.text = secondsInt.ToString();
+            shipmenuSecond.text = secondsInt.ToString();
+        }
+        else
+        {
+            timerSecondsText.text = "0" + secondsInt.ToString();
+            shipmenuSecond.text = "0" + secondsInt.ToString();
+        }
+
+        if(minutes >= 10)
+        {
+            timerMinutesText.text = minutes.ToString();
+            shipMenuMinutes.text = minutes.ToString();
+        }
+        else
+        {
+            timerMinutesText.text = "0" + minutes.ToString();
+            shipMenuMinutes.text = "0" + minutes.ToString();
+        }
 
         seconds -= Time.deltaTime;
 
