@@ -11,7 +11,7 @@ using static UnityEngine.GraphicsBuffer;
 public class ShipBaseScript : MonoBehaviour
 {
     [Header("ShipInfo")]
-    public string name;
+    public string shipName;
     public string ShipClass;
     public string description;
     public string type;
@@ -138,19 +138,19 @@ public class ShipBaseScript : MonoBehaviour
 
     public void NameSelection()
     {
-
-        if (name == "Unsinkable" && !nameSelected)
+        if (!nameSelected)
         {
-            Debug.Log("Unsinkable");
-        }
-        else if (!nameSelected)
-        {
-            name = GetRandomName();
+            shipName = GetRandomName();
         }
         if (gameObject.name != "Temp" && !nameSelected)
         {
             nameText = nameDisplay.gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
-            nameText.text = name;
+            nameText.text = shipName;
+
+            if (shipName == "Unsinkable")
+            {
+                Debug.Log("Unsinkable");
+            }
         }
 
         nameSelected = true;

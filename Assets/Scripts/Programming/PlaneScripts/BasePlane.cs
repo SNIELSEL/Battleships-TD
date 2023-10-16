@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 
 public class BasePlane : MonoBehaviour
 {
-    [Header("ShipInfo")]
-    public string name;
+    [Header("PlaneInfo")]
+    public string planeName;
     public string planeClass;
     public string description;
     public string type;
@@ -23,28 +23,29 @@ public class BasePlane : MonoBehaviour
     public int speed;
     public int ammo;
 
-    private float beginAttackSpeed;
-
-    //private info
-    private Transform[] destinations;
-    private Transform[] endDestinations;
-    public ParticleSystem explosion;
-
-    private Vector3 position;
-    private int pathNumber;
-
-    private BasePlane planeStats;
-    private PlaneSpawner spawner;
-    private int destinationNumber;
     public bool isAttacking;
     public Transform parentObject;
     public Transform bombObject;
     public bool isAttacker;
+    public ParticleSystem explosion;
+
+    //private info
+    private Transform[] destinations;
+    private Transform[] endDestinations;
+    private string[] identifiers = new string[] { "BL", " BR", "M", "UL", "UR" };
+
+    private int pathNumber;
+    private float beginAttackSpeed;
+
+    private BasePlane planeStats;
+    private PlaneSpawner spawner;
+    private int destinationNumber;
 
     private FlagSchip flagSchip;
     private Money moneyScript;
     private bool isDead;
     private bool planeNavStarted;
+    private bool allShipsDestroyed;
     public void Start()
     {
         moneyScript = GameObject.Find("ScriptManager").GetComponent<Money>();
@@ -100,17 +101,16 @@ public class BasePlane : MonoBehaviour
 
             pathNumber = spawner.randomLoc;
 
-            position = transform.position;
+            if (allShipsDestroyed) 
+            {
+                destinations = new Transform[2];
+                destinations[0] = GameObject.Find("BombDrop1 ACC").transform;
+                destinations[1] = GameObject.Find("BombDrop2 ACC").transform;
 
-            destinations = new Transform[3];
-            destinations[0] = GameObject.Find("BombDrop1 ACC").transform;
-            destinations[1] = GameObject.Find("BombDrop2 ACC").transform;
-            destinations[2] = GameObject.Find("BombDrop3 ACC").transform;
-
-            endDestinations = new Transform[3];
-            endDestinations[0] = GameObject.Find("End ACC 1").transform;
-            endDestinations[1] = GameObject.Find("End ACC 2").transform;
-            endDestinations[2] = GameObject.Find("End ACC 3").transform;
+                endDestinations = new Transform[2];
+                endDestinations[0] = GameObject.Find("End ACC 1").transform;
+                endDestinations[1] = GameObject.Find("End ACC 2").transform;
+            }
         }
 
         //plane nav
