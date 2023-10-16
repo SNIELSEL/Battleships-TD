@@ -38,6 +38,15 @@
         },
         {
             "m_Id": "d78fcae18a1c4445badc09eb5806b4f2"
+        },
+        {
+            "m_Id": "f6a19f19f282472f94c73219c5dd788b"
+        },
+        {
+            "m_Id": "cd863ffafd18483f8328908026be8e4b"
+        },
+        {
+            "m_Id": "c567f4bd5fd944c8a22329ae81d90a17"
         }
     ],
     "m_Keywords": [],
@@ -2291,6 +2300,15 @@
         },
         {
             "m_Id": "d78fcae18a1c4445badc09eb5806b4f2"
+        },
+        {
+            "m_Id": "f6a19f19f282472f94c73219c5dd788b"
+        },
+        {
+            "m_Id": "cd863ffafd18483f8328908026be8e4b"
+        },
+        {
+            "m_Id": "c567f4bd5fd944c8a22329ae81d90a17"
         }
     ]
 }
@@ -4220,6 +4238,34 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "c567f4bd5fd944c8a22329ae81d90a17",
+    "m_Guid": {
+        "m_GuidSerialized": "72c59fd9-fb89-4a37-acaf-35da024337bf"
+    },
+    "m_Name": "_WaveSpeed",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "_WaveSpeed",
+    "m_DefaultReferenceName": "_WaveSpeed",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "c57cdeb4c82b4db3a0ece05f59c5e578",
@@ -4409,6 +4455,34 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "SurfaceDescription.BaseColor"
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "cd863ffafd18483f8328908026be8e4b",
+    "m_Guid": {
+        "m_GuidSerialized": "4f22f207-eebe-44b4-9a92-aad74c667149"
+    },
+    "m_Name": "_WaveScale",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "_WaveScale",
+    "m_DefaultReferenceName": "_WaveScale",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
 }
 
 {
@@ -5448,6 +5522,34 @@
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "f6a19f19f282472f94c73219c5dd788b",
+    "m_Guid": {
+        "m_GuidSerialized": "8c5c7875-05b7-46a3-b164-6b8a45412cf2"
+    },
+    "m_Name": "_WaveFrequency",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "_WaveFrequency",
+    "m_DefaultReferenceName": "_WaveFrequency",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
 }
 
 {

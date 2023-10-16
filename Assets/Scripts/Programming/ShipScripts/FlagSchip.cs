@@ -43,7 +43,7 @@ public class FlagSchip : ShipBaseScript
 
     public IEnumerator ShipHasSunk()
     {
-        yield return new WaitForSeconds(13);
+        yield return new WaitForSeconds(10);
 
         if (flagShipSunk)
         {
