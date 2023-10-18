@@ -155,3 +155,4 @@ MonoBehaviour:
   damage: 0
   explosion: {fileID: 5098290221254473955, guid: 7b41505fea00c1645b6b570a2a28635d,
     type: 3}
+  parentObject: {fileID: 0}

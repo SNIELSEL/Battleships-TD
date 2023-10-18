@@ -22,40 +22,42 @@ public class BasePlane : MonoBehaviour
     public float armor;
     public int speed;
     public int ammo;
+    public int destroyReward;
+    public int distanceFromDestination;
 
-    public bool isAttacking;
     public Transform parentObject;
     public Transform bombObject;
-    public bool isAttacker;
     public ParticleSystem explosion;
+    public bool isAttacking;
+    public bool isAttacker;
+    public GameObject[] sortedShips;
+    public List<GameObject> shipCheck;
 
     //private info
     private Transform[] destinations;
     private Transform[] endDestinations;
-    private string[] identifiers = new string[] { "BL", " BR", "M", "UL", "UR" };
+    private Transform target1;
+    private Transform target2;
 
-    private int pathNumber;
-    private float beginAttackSpeed;
-
-    private BasePlane planeStats;
-    private PlaneSpawner spawner;
     private int destinationNumber;
+    private int pathNumber;
+    private int shipToAttack1;
+    private int shipToAttack2;
 
-    private FlagSchip flagSchip;
-    private Money moneyScript;
     private bool isDead;
     private bool planeNavStarted;
-    private bool allShipsDestroyed;
+    private bool noTowers;
+
+    private BasePlane planeStats;
+    private PlaneSpawner planeSpawner;
+    private FlagSchip flagSchip;
+    private Money moneyScript;
+    private ShipSpawner shipSpawner;
+
     public void Start()
     {
-        moneyScript = GameObject.Find("ScriptManager").GetComponent<Money>();
-
-        flagSchip = GameObject.Find("akagi").GetComponent<FlagSchip>();
-
-        bombObject = GameObject.Find("ParticleParent").transform;
-
-        parentObject = GameObject.Find("BombParent").transform;
-
+        ComponentAssigner();
+        TowerScan();
         PlaneNavegation();
     }
 
@@ -68,13 +70,11 @@ public class BasePlane : MonoBehaviour
             isDead = true;
             Instantiate(explosion, transform.position, transform.rotation, bombObject);
 
-            moneyScript.money += 100;
+            moneyScript.money += destroyReward;
             Destroy(gameObject);
-
-            Debug.Log("dead");
         }
 
-        if (ammo > 0 && isAttacking)
+        if (ammo > 0 && isAttacking && !flagSchip.flagShipSunk)
         {
             ammo--;
 
@@ -86,7 +86,6 @@ public class BasePlane : MonoBehaviour
 
     public void PlaneNavegation()
     {
-        //plane nav
         if (isAttacker && !planeNavStarted)
         {
             if (flagSchip.flagShipSunk)
@@ -96,27 +95,24 @@ public class BasePlane : MonoBehaviour
 
             planeNavStarted = true;
 
-            spawner = GameObject.Find("ScriptManager").GetComponent<PlaneSpawner>();
-            planeStats = gameObject.GetComponent<BasePlane>();
+            pathNumber = planeSpawner.randomLoc;
 
-            pathNumber = spawner.randomLoc;
-
-            if (allShipsDestroyed) 
+            if (noTowers)
             {
                 destinations = new Transform[2];
-                destinations[0] = GameObject.Find("BombDrop1 ACC").transform;
-                destinations[1] = GameObject.Find("BombDrop2 ACC").transform;
-
-                endDestinations = new Transform[2];
-                endDestinations[0] = GameObject.Find("End ACC 1").transform;
-                endDestinations[1] = GameObject.Find("End ACC 2").transform;
+                destinations[0] = target1;
+                destinations[1] = target2;
             }
+
+            endDestinations = new Transform[2];
+            endDestinations[0] = GameObject.Find("End ACC 1").transform;
+            endDestinations[1] = GameObject.Find("End ACC 2").transform;
         }
 
         //plane nav
         if (isAttacker)
         {
-            if (Vector3.Distance(transform.position, destinations[pathNumber].position) <= 3 && destinationNumber == 0)
+            if (Vector3.Distance(transform.position, destinations[pathNumber].position) <= distanceFromDestination && destinationNumber == 0)
             {
                 destinationNumber = 1;
             }
@@ -133,5 +129,60 @@ public class BasePlane : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, endDestinations[pathNumber].position, planeStats.speed * Time.deltaTime);
             }
         }
+    }
+
+    public void TowerScan()
+    {
+        sortedShips = new GameObject[5];
+        for (int i = 0; i < sortedShips.Length; i++)
+        {
+            if (shipSpawner.shipsSpawnedIn[i] != null)
+            {
+                sortedShips[i] = shipSpawner.shipsSpawnedIn[i];
+            }
+        }
+
+        for (int i = 0; i < sortedShips.Length; i++)
+        {
+            if (sortedShips[i] != null && sortedShips[i].GetComponent<ShipBaseScript>().shipSunk == false)
+            {
+                shipCheck.Add(sortedShips[i]);
+            }
+        }
+
+        if (shipCheck.Count <= 0)
+        {
+            noTowers = true;
+
+            target1 = GameObject.Find("BombDrop1 ACC").transform;
+            target2 = GameObject.Find("BombDrop2 ACC").transform;
+        }
+        else
+        {
+            destinations = new Transform[2];
+
+            shipToAttack1 = Random.Range(0, shipCheck.Count);
+            shipToAttack2 = Random.Range(0, shipCheck.Count);
+
+            destinations[0] = shipCheck[shipToAttack1].transform.Find("Target");
+            destinations[1] = shipCheck[shipToAttack2].transform.Find("Target");
+        }
+    }
+
+    public void ComponentAssigner()
+    {
+        planeSpawner = GameObject.Find("ScriptManager").GetComponent<PlaneSpawner>();
+
+        planeStats = gameObject.GetComponent<BasePlane>();
+
+        shipSpawner = GameObject.Find("ScriptManager").GetComponent<ShipSpawner>();
+
+        moneyScript = GameObject.Find("ScriptManager").GetComponent<Money>();
+
+        flagSchip = GameObject.Find("akagi").GetComponent<FlagSchip>();
+
+        bombObject = GameObject.Find("ParticleParent").transform;
+
+        parentObject = GameObject.Find("BombParent").transform;
     }
 }
