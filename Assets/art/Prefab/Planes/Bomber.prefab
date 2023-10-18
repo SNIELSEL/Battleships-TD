@@ -137,15 +137,15 @@ MonoBehaviour:
   attackSpeed: 0
   armor: 0
   speed: 12
-  ammo: 100
-  destroyReward: 1
-  distanceFromDestination: 3
+  ammo: 1
+  destroyReward: 100
+  distanceFromDestination: 1
   parentObject: {fileID: 0}
   bombObject: {fileID: 0}
-  isAttacking: 0
-  isAttacker: 1
   explosion: {fileID: 5098290221254473955, guid: 7b41505fea00c1645b6b570a2a28635d,
     type: 3}
+  isAttacking: 0
+  isAttacker: 1
   sortedShips: []
   shipCheck: []
 --- !u!64 &8390848166632756379

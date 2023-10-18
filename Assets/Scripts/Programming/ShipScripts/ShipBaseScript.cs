@@ -26,7 +26,7 @@ public class ShipBaseScript : MonoBehaviour
 
     [Header("Etc")]
     public int respawnTime;
-    public int sinkTime;
+    public float sinkTime;
     public GunFov gunFov;
     public Transform cannonParent;
     public List<Transform> cannons;
@@ -177,8 +177,10 @@ public class ShipBaseScript : MonoBehaviour
         //sinking
         if (health <= 0)
         {
+            shipSunk = true;
+
             GetComponent<Rigidbody>().useGravity = true;
-            this.GetComponent<WateverVolumeFloater>().enabled = false;
+            GetComponent<WateverVolumeFloater>().enabled = false;
 
             if(!tempBool)
             {
@@ -199,7 +201,7 @@ public class ShipBaseScript : MonoBehaviour
 
         health = 0;
 
-        this.GetComponent<WateverVolumeFloater>().enabled = false;
+        GetComponent<WateverVolumeFloater>().enabled = false;
 
         for (int i = 0; i < explosionParent.childCount; i++)
         {
@@ -225,6 +227,13 @@ public class ShipBaseScript : MonoBehaviour
 
     public void SinkingShipRotation()
     {
+        sinkTime -= Time.deltaTime;
+
         transform.rotation = Quaternion.RotateTowards(transform.rotation, sinkRotation.transform.rotation, speed * Time.deltaTime);
+
+        if (sinkTime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

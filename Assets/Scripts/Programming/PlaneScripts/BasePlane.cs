@@ -74,7 +74,7 @@ public class BasePlane : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (ammo > 0 && isAttacking)
+        if (ammo > 0 && isAttacking && !flagSchip.flagShipSunk)
         {
             ammo--;
 
@@ -144,7 +144,7 @@ public class BasePlane : MonoBehaviour
 
         for (int i = 0; i < sortedShips.Length; i++)
         {
-            if (sortedShips[i] != null)
+            if (sortedShips[i] != null && sortedShips[i].GetComponent<ShipBaseScript>().shipSunk == false)
             {
                 shipCheck.Add(sortedShips[i]);
             }

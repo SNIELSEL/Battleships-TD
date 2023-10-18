@@ -37,6 +37,11 @@ public class PlaneSpawner : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.F8))
+        {
+            planeSpawnTimer[0] = 0;
+        }
+
         gameTimer -= Time.deltaTime;
         planeSpawnTimer[gameStage] -= Time.deltaTime;
 

@@ -39,25 +39,11 @@ public class BombMomentum : MonoBehaviour
 
             if(collision.gameObject.GetComponent<ShipBaseScript>().armor <= 0)
             {
-                if(collision.gameObject.name == "akagi")
-                {
-                    collision.gameObject.GetComponent<ShipBaseScript>().health -= damage;
-                }
-                else
-                {
-                    GameObject.Find("akagi").GetComponent<ShipBaseScript>().health -= damage;
-                }
+                collision.gameObject.GetComponent<ShipBaseScript>().health -= damage;
             }
             else
             {
-                if (collision.gameObject.name == "akagi")
-                {
-                    collision.gameObject.GetComponent<ShipBaseScript>().armor -= damage;
-                }
-                else
-                {
-                    GameObject.Find("akagi").GetComponent<ShipBaseScript>().armor -= damage;
-                }
+                collision.gameObject.GetComponent<ShipBaseScript>().armor -= damage;
             }
 
             Destroy(this.gameObject);
