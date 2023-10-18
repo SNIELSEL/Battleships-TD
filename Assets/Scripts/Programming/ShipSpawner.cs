@@ -37,6 +37,8 @@ public class ShipSpawner : MonoBehaviour
     public Money moneycript;
     public int[] spawnCost;
 
+    public GameObject[] shipsSpawnedIn;
+
     private void Start()
     {
         parentObject = GameObject.Find("ShipParent").transform;
@@ -57,7 +59,6 @@ public class ShipSpawner : MonoBehaviour
         {
             BuyShip();
 
-            Debug.Log(spawnCost[shipToSpawn]+ "is the spawncost" + moneycript.money);
             shipSpawnUI[locationToSpawn].SetActive(false);
             if (locationToSpawn == 0)
             {

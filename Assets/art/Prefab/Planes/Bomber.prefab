@@ -126,24 +126,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a72a5ac57d29964b97255edbaf1acc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  planeName: 
   planeClass: Bomber
   description: 
   type: American
   projectile: {fileID: 7396471479203092008, guid: 8f9cea67f323e054a9b1f389f5f1749a,
     type: 3}
-  health: 25
+  health: 50
   damage: {x: 15, y: 25}
   attackSpeed: 0
   armor: 0
   speed: 12
-  ammo: 1
-  explosion: {fileID: 5098290221254473955, guid: 7b41505fea00c1645b6b570a2a28635d,
-    type: 3}
-  isAttacking: 0
+  ammo: 100
+  destroyReward: 1
+  distanceFromDestination: 3
   parentObject: {fileID: 0}
   bombObject: {fileID: 0}
+  isAttacking: 0
   isAttacker: 1
+  explosion: {fileID: 5098290221254473955, guid: 7b41505fea00c1645b6b570a2a28635d,
+    type: 3}
+  sortedShips: []
+  shipCheck: []
 --- !u!64 &8390848166632756379
 MeshCollider:
   m_ObjectHideFlags: 0

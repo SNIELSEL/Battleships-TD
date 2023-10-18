@@ -32,6 +32,7 @@ public class ShipBaseScript : MonoBehaviour
     public List<Transform> cannons;
     public GameObject shootEffect;
     public int destroyedShipMoney;
+    public bool isBaseTower;
 
     //namedisplay
     public Canvas nameDisplay;
@@ -48,9 +49,12 @@ public class ShipBaseScript : MonoBehaviour
     private int damageDone;
     private Money money;
     private RefundManager refund;
+    private ShipSpawner shipSpawner;
 
     public virtual void Start()
     {
+        shipSpawner = GameObject.Find("ScriptManager").GetComponent<ShipSpawner>();
+
         refund = GameObject.Find("ScriptManager").GetComponent<RefundManager>();
 
         money = GameObject.Find("ScriptManager").GetComponent<Money>();
@@ -61,6 +65,11 @@ public class ShipBaseScript : MonoBehaviour
         }
 
         beginAttackSpeed = attackSpeed;
+
+        if (!isBaseTower)
+        {
+            shipSpawner.shipsSpawnedIn[shipSpawner.locationToSpawn] = gameObject;
+        }
     }
 
     public virtual void Update()

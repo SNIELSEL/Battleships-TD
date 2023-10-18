@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2353edfba8faa4ab526135f0a883cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  shipName: 
   ShipClass: Destroyer
   description: 
   type: Light
@@ -262,6 +262,7 @@ MonoBehaviour:
   shootEffect: {fileID: 4782843193681301723, guid: 82e2a7749d8861343b741065337a3909,
     type: 3}
   destroyedShipMoney: 500
+  isBaseTower: 0
   nameDisplay: {fileID: 2782647739282809332}
   shipSunk: 0
   explosionParent: {fileID: 6276524566566371297}
@@ -302,7 +303,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8021396948480031111}
   m_Layer: 3
-  m_Name: target BL
+  m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
