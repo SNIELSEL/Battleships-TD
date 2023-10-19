@@ -139,7 +139,7 @@ public class ShipBaseScript : MonoBehaviour
             enemy = gunFov.playerRef;
         }
 
-        if (gunFov.canSeePlayer && gunFov.playerRef != null)
+        if (gunFov.canSeePlayer && gunFov.playerRef != null && !shipSunk)
         {
             Shoot();
         }

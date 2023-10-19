@@ -67,11 +67,7 @@ public class BasePlane : MonoBehaviour
 
         if (health <= 0 && !isDead)
         {
-            isDead = true;
-            Instantiate(explosion, transform.position, transform.rotation, bombObject);
-
-            moneyScript.money += destroyReward;
-            Destroy(gameObject);
+            Explode();
         }
 
         if (ammo > 0 && isAttacking && !flagSchip.flagShipSunk)
@@ -88,12 +84,12 @@ public class BasePlane : MonoBehaviour
     {
         if (isAttacker && !planeNavStarted)
         {
+            planeNavStarted = true;
+            
             if (flagSchip.flagShipSunk)
             {
                 destinationNumber = 1;
             }
-
-            planeNavStarted = true;
 
             pathNumber = planeSpawner.randomLoc;
 
@@ -107,6 +103,8 @@ public class BasePlane : MonoBehaviour
             endDestinations = new Transform[2];
             endDestinations[0] = GameObject.Find("End ACC 1").transform;
             endDestinations[1] = GameObject.Find("End ACC 2").transform;
+
+            StartCoroutine(CheckDestination());
         }
 
         //plane nav
@@ -184,5 +182,26 @@ public class BasePlane : MonoBehaviour
         bombObject = GameObject.Find("ParticleParent").transform;
 
         parentObject = GameObject.Find("BombParent").transform;
+    }
+
+    public void Explode()
+    {
+        isDead = true;
+        Instantiate(explosion, transform.position, transform.rotation, bombObject);
+
+        moneyScript.money += destroyReward;
+        Destroy(gameObject);
+    }
+
+    public IEnumerator CheckDestination()
+    {
+        yield return new WaitForSeconds(1);
+
+        if (destinations[0] == null || destinations[1] == null)
+        {
+            Explode();
+        }
+
+        StartCoroutine(CheckDestination());
     }
 }
