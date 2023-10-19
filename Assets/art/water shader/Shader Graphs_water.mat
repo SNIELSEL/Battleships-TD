@@ -51,7 +51,7 @@ Material:
     - _rippleDensity: -1.63
     - _rippleSlimness: 30
     - _rippleSpeed: 2
-    - _transparency: 0.2
+    - _transparency: 0.65
     - _waveScale: 0
     - _waveSpeed: 1
     m_Colors:

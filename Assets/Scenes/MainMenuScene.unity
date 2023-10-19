@@ -8690,7 +8690,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1945029003}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 7b8c585f49c269c4bbd85a8b5c7ebab5, type: 3}
+  m_VideoClip: {fileID: 0}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 49728090}
@@ -10100,7 +10100,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1164538932}
         m_TargetAssemblyTypeName: SceneSwitch, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: ToSwitch
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
