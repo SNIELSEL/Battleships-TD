@@ -41,6 +41,9 @@ Material:
     - _Dept: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _WaveFrequency: 0
+    - _WaveScale: 0
+    - _WaveSpeed: 0
     - _foamAmount: -0.09
     - _foamCutoff: 30
     - _foamScale: 0
@@ -48,6 +51,7 @@ Material:
     - _rippleDensity: -1.63
     - _rippleSlimness: 30
     - _rippleSpeed: 2
+    - _transparency: 0.2
     - _waveScale: 0
     - _waveSpeed: 1
     m_Colors:
