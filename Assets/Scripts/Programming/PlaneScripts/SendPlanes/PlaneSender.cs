@@ -37,10 +37,13 @@ public class PlaneSender : MonoBehaviour
 
     public void SpawnPlane()
     {
-        Instantiate(planePrefab[planeNumber], spawnlocation.position, spawnlocation.rotation, parentObject);
+        if (moneyScrip.money >= planeCost[planeNumber])
+        {
+            Instantiate(planePrefab[planeNumber], spawnlocation.position, spawnlocation.rotation, parentObject);
 
-        moneyScrip.money -= planeCost[planeNumber];
-        cheatWin++;
+            moneyScrip.money -= planeCost[planeNumber];
+            cheatWin++;
+        }
     }
 
     public void ShipNumberChanger(int shipNumberPicked)

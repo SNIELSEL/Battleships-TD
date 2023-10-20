@@ -65,17 +65,22 @@ public class PlaneSpawner : MonoBehaviour
 
         if (planeSpawnTimer[gameStage] <= 0 && flagSchip.flagShipSunk == false)
         {
-            planeSpawnTimer[0] = 5;
-            beginPlaneSpawnTimer[0] = 5;
+            SpawnPlane();
+        }
+    }
 
-            randomLoc = Random.Range(0, 2);
+    public void SpawnPlane()
+    {
+        planeSpawnTimer[0] = 5;
+        beginPlaneSpawnTimer[0] = 5;
 
-            Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[randomLoc].transform.position, spawnlocations[randomLoc].transform.rotation, parentObject);
+        randomLoc = Random.Range(0, 2);
 
-            for (int i = 0; i < planeSpawnTimer.Length; i++)
-            {
-                planeSpawnTimer[i] = beginPlaneSpawnTimer[i];
-            }
+        Instantiate(planes[(int)Random.Range(planesToSpawn.x, planesToSpawn.y)], spawnlocations[randomLoc].transform.position, spawnlocations[randomLoc].transform.rotation, parentObject);
+
+        for (int i = 0; i < planeSpawnTimer.Length; i++)
+        {
+            planeSpawnTimer[i] = beginPlaneSpawnTimer[i];
         }
     }
 }
