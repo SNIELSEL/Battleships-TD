@@ -130,14 +130,14 @@ MonoBehaviour:
   planeClass: Bomber
   description: 
   type: American
-  projectile: {fileID: 7396471479203092008, guid: 8f9cea67f323e054a9b1f389f5f1749a,
+  projectile: {fileID: 3178435562633118401, guid: 03d47d541b5fe304b926cda375f75aa0,
     type: 3}
   health: 50
   damage: {x: 15, y: 25}
   attackSpeed: 0
   armor: 0
   speed: 12
-  ammo: 1
+  ammo: 6
   destroyReward: 100
   distanceFromDestination: 1
   parentObject: {fileID: 0}
