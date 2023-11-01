@@ -113,10 +113,10 @@ TextureImporter:
       name: Ui button_0
       rect:
         serializedVersion: 2
-        x: 89
+        x: 103
         y: 604
-        width: 653
-        height: 246
+        width: 630
+        height: 261
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 2, w: 0}
