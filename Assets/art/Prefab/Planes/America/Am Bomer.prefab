@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1529801641066406332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2193572771766926086}
+  - component: {fileID: 2993188613309911836}
+  - component: {fileID: 6842783871142738944}
+  m_Layer: 0
+  m_Name: Am Bomer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2193572771766926086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529801641066406332}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -64.27, y: 3.5154107, z: -12.48}
+  m_LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 3026564370036416611}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2993188613309911836
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529801641066406332}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 9
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &6842783871142738944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529801641066406332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a72a5ac57d29964b97255edbaf1acc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeName: 
+  planeClass: Bomber
+  description: 
+  type: American
+  projectile: {fileID: 3178435562633118401, guid: 03d47d541b5fe304b926cda375f75aa0,
+    type: 3}
+  health: 50
+  damage: {x: 15, y: 25}
+  attackSpeed: 0
+  armor: 0
+  speed: 12
+  ammo: 1
+  destroyReward: 100
+  distanceFromDestination: 1
+  parentObject: {fileID: 0}
+  bombObject: {fileID: 0}
+  explosion: {fileID: 5098290221254473955, guid: 7b41505fea00c1645b6b570a2a28635d,
+    type: 3}
+  isAttacking: 0
+  isAttacker: 1
+  sortedShips: []
+  shipCheck: []
+--- !u!1001 &1586262162925896418
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2193572771766926086}
+    m_Modifications:
+    - target: {fileID: 321005895511895147, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_Name
+      value: American Bomber
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4c5591e790bae6d4aa3a58e301424b9d, type: 3}
+--- !u!4 &3026564370036416611 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4324314679490421377, guid: 4c5591e790bae6d4aa3a58e301424b9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1586262162925896418}
+  m_PrefabAsset: {fileID: 0}
