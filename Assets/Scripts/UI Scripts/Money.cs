@@ -9,7 +9,7 @@ public class Money : MonoBehaviour
 
     public int multiplier;
 
-    public TextMeshProUGUI hUDMoneyText, shipMenuMoneyText;
+    public TextMeshProUGUI hUDMoneyText, shipMenuMoneyText, planeSpawnText;
 
     private int moneyDisplayed;
     // Update is called once per frame
@@ -26,5 +26,6 @@ public class Money : MonoBehaviour
 
         hUDMoneyText.text = moneyDisplayed.ToString();
         shipMenuMoneyText.text = moneyDisplayed.ToString();
+        planeSpawnText.text = moneyDisplayed.ToString();
     }
 }
