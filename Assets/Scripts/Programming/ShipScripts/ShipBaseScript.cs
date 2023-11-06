@@ -27,10 +27,10 @@ public class ShipBaseScript : MonoBehaviour
     [Header("Etc")]
     public float respawnTime;
     public float sinkTime;
-    public GunFov gunFov;
     public Transform cannonParent;
     public List<Transform> cannons;
     public GameObject shootEffect;
+    public GameObject detectionHitbox;
     public int destroyedShipMoney;
     public bool isBaseTower;
     public bool shipSunk;
@@ -136,15 +136,7 @@ public class ShipBaseScript : MonoBehaviour
 
     public void DetectedPlayer()
     {
-        if (gunFov.playerRef != null)
-        {
-            enemy = gunFov.playerRef;
-        }
-
-        if (gunFov.canSeePlayer && gunFov.playerRef != null && !shipSunk)
-        {
-            Shoot();
-        }
+        Shoot();
     }
 
     public void NameSelection()
