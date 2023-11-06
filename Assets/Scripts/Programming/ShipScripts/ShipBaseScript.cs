@@ -25,7 +25,7 @@ public class ShipBaseScript : MonoBehaviour
     public int speed;
 
     [Header("Etc")]
-    public int respawnTime;
+    public float respawnTime;
     public float sinkTime;
     public GunFov gunFov;
     public Transform cannonParent;
@@ -33,6 +33,7 @@ public class ShipBaseScript : MonoBehaviour
     public GameObject shootEffect;
     public int destroyedShipMoney;
     public bool isBaseTower;
+    public bool shipSunk;
 
     //namedisplay
     public Canvas nameDisplay;
@@ -44,7 +45,6 @@ public class ShipBaseScript : MonoBehaviour
     private Vector3 boatPosition;
     private float beginAttackSpeed;
     private bool nameSelected;
-    public bool shipSunk;
     private bool sinkTimerUp;
     private int damageDone;
     private Money money;
@@ -81,6 +81,8 @@ public class ShipBaseScript : MonoBehaviour
 
         if (shipSunk)
         {
+            shipSpawner.ShipRespawnTimer(respawnTime, shipIdentifyer);
+
             GetComponent<NavMeshAgent>().enabled = false;
             SinkingShipRotation();
         }
