@@ -976,7 +976,7 @@ MonoBehaviour:
   attackSpeed: 0.85
   armor: 0
   speed: 17
-  respawnTime: 1
+  respawnTime: 60
   sinkTime: 8
   gunFov: {fileID: 563088840397423533}
   cannonParent: {fileID: 7678697580879916537}
@@ -985,8 +985,8 @@ MonoBehaviour:
     type: 3}
   destroyedShipMoney: 1250
   isBaseTower: 0
-  nameDisplay: {fileID: 909967808322137062}
   shipSunk: 0
+  nameDisplay: {fileID: 909967808322137062}
   explosionParent: {fileID: 5146861951174106503}
   explosionLocations: []
   explosion: {fileID: 7912267248823628536, guid: b52c0243a816a6b47a43b543ec883a96,

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipSpawner : MonoBehaviour
 {
@@ -32,16 +34,36 @@ public class ShipSpawner : MonoBehaviour
     public Color startColor;
     public Color noMoneyColor;
 
+    public Button[] shipLocationButton;
     public GameObject[] shipSpawnUI;
+    public string[] buttontext;
 
     public Money moneycript;
     public int[] spawnCost;
 
     public GameObject[] shipsSpawnedIn;
 
+    private bool[] shipRespawning;
+    private int uiForCountDown;
+    private float[] respawnTime;
+    private string[] shipIDs;
+
+    private bool[] shipchecks;
+
     private void Start()
     {
+        shipchecks = new bool[5];
+
+        shipIDs = new string[] { "BL", "BR", "M", "UL", "UR" };
         parentObject = GameObject.Find("ShipParent").transform;
+
+        respawnTime = new float[] {60,60,60,60,60};
+        shipRespawning = new bool[5];
+    }
+
+    public void Update()
+    {
+        ShipRespawnTimer();
     }
 
     public void locationPicker(int locationNumber)
@@ -59,7 +81,8 @@ public class ShipSpawner : MonoBehaviour
         {
             BuyShip();
 
-            shipSpawnUI[locationToSpawn].SetActive(false);
+            shipSpawnUI[locationToSpawn].GetComponent<TextMeshProUGUI>().text = "On  Duty";
+            shipLocationButton[locationToSpawn].interactable = false;
             if (locationToSpawn == 0)
             {
                 Instantiate(ghostShipsBottomLeft[shipToSpawn], ghostShipSpawnLocations[locationToSpawn].transform.position, ghostShipsBottomLeft[shipToSpawn].transform.rotation, parentObject);
@@ -113,6 +136,87 @@ public class ShipSpawner : MonoBehaviour
         else if (shipToSpawn == 3)
         {
             moneycript.money -= 4000;
+        }
+    }
+
+    public void ShipRespawnTimer(float respawntime, string shipid)
+    {
+        for (int i = 0; i < shipIDs.Length; i++)
+        {
+            if(shipIDs[i] == shipid)
+            {
+                shipRespawning[i] = true;
+                uiForCountDown = i;
+            }
+        }
+
+        for (int i = 0; i < shipchecks.Length; i++)
+        {
+            if(i == uiForCountDown)
+            {
+                shipchecks[i] = true;
+            }
+        }
+
+        respawnTime[uiForCountDown] = respawntime;
+    }
+
+    public void ShipRespawnTimer()
+    {
+        if (shipRespawning[0])
+        {
+            if (shipchecks[0] == true)
+            {
+                respawnTime[0] -= Time.deltaTime;
+                shipSpawnUI[0].GetComponent<TextMeshProUGUI>().text = "Respawning... " + (int)respawnTime[0];
+            }
+        }
+        if (shipRespawning[1])
+        {
+            if (shipchecks[1] == true)
+            {
+                respawnTime[1] -= Time.deltaTime;
+                shipSpawnUI[1].GetComponent<TextMeshProUGUI>().text = "Respawning... " + (int)respawnTime[1];
+            }
+        }
+        if (shipRespawning[2])
+        {
+            if (shipchecks[2] == true)
+            {
+                respawnTime[2] -= Time.deltaTime;
+                shipSpawnUI[2].GetComponent<TextMeshProUGUI>().text = "Respawning... " + (int)respawnTime[2];
+            }
+        }
+        if (shipRespawning[3])
+        {
+            if (shipchecks[3] == true)
+            {
+                respawnTime[3] -= Time.deltaTime;
+                shipSpawnUI[3].GetComponent<TextMeshProUGUI>().text = "Respawning... " + (int)respawnTime[3];
+            }
+        }
+        if (shipRespawning[4])
+        {
+            if (shipchecks[4] == true)
+            {
+                respawnTime[4] -= Time.deltaTime;
+                shipSpawnUI[4].GetComponent<TextMeshProUGUI>().text = "Respawning... " + (int)respawnTime[4];
+            }
+        }
+
+        for (int i = 0; i < respawnTime.Length; i++)
+        {
+            if (respawnTime[i] <= 0)
+            {
+                if (shipchecks[i] == true)
+                {
+                    respawnTime[i] = 60;
+                    shipchecks[i] = false;
+                    shipRespawning[i] = false;
+                    shipSpawnUI[i].GetComponent<TextMeshProUGUI>().text = buttontext[i];
+                    shipLocationButton[i].interactable = true;
+                }
+            }
         }
     }
 
