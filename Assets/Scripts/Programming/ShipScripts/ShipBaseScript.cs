@@ -33,6 +33,7 @@ public class ShipBaseScript : MonoBehaviour
     public GameObject detectionHitbox;
     public int destroyedShipMoney;
     public bool isBaseTower;
+    public bool isEnemyTower;
     public bool shipSunk;
 
     //namedisplay
@@ -71,7 +72,10 @@ public class ShipBaseScript : MonoBehaviour
 
         if (!isBaseTower)
         {
-            shipSpawner.shipsSpawnedIn[shipSpawner.locationToSpawn] = gameObject;
+            if (!isEnemyTower)
+            {
+                shipSpawner.shipsSpawnedIn[shipSpawner.locationToSpawn] = gameObject;
+            }
         }
     }
 

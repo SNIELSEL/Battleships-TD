@@ -28,6 +28,10 @@ public class SpawnedPlaneFlyPath : MonoBehaviour
         {
             destinationNumber = 2;
         }
+        else if (Vector3.Distance(transform.position, destination[2].position) <= 2 && destinationNumber == 2)
+        {
+            destinationNumber = 3;
+        }
 
         if (destinationNumber == 0)
         {
@@ -43,6 +47,11 @@ public class SpawnedPlaneFlyPath : MonoBehaviour
         {
             transform.LookAt(destination[destinationNumber]);
             transform.position = Vector3.MoveTowards(transform.position, destination[2].position, planeStats.speed * Time.deltaTime);
+        }
+        else if (destinationNumber == 3)
+        {
+            GetComponent<SpawnedPlaneFlyPath>().enabled = false;
+            GetComponent<EnemyTargetNav>().enabled = true;
         }
     }
 }

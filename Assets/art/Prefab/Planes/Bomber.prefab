@@ -114,8 +114,8 @@ GameObject:
   - component: {fileID: 4667645206610915759}
   - component: {fileID: -2571390000965956698}
   - component: {fileID: 8390848166632756379}
-  - component: {fileID: 4543664666258333996}
   - component: {fileID: 1797839002256878997}
+  - component: {fileID: -8546813984610507840}
   m_Layer: 8
   m_Name: Bomber
   m_TagString: Target
@@ -273,29 +273,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4579454407841743219, guid: 564665a872880ed4198a88247b5e1cce, type: 3}
---- !u!114 &4543664666258333996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6547387973470704427}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b95628e974cc784eb54aaaacb85ebbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Objectscanradius: 200
-  radius: 3.07
-  angle: 0
-  playerRef: {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 256
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 128
-  canSeePlayer: 0
 --- !u!114 &1797839002256878997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +290,33 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &-8546813984610507840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6547387973470704427}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f157aae35bbff42920459c6a3a5626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipSpawner: {fileID: 0}
+  enemyShips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemyShipTargets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  halfwayMark: {fileID: 0}
+  EndPoint: {fileID: 0}
 --- !u!1 &7161598027923240858
 GameObject:
   m_ObjectHideFlags: 0

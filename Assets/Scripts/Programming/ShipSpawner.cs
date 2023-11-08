@@ -42,6 +42,7 @@ public class ShipSpawner : MonoBehaviour
     public int[] spawnCost;
 
     public GameObject[] shipsSpawnedIn;
+    public GameObject[] enemyShips;
 
     private bool[] shipRespawning;
     private int uiForCountDown;

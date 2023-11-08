@@ -23,6 +23,7 @@ TagManager:
   - Target
   - PlaneCarrier
   - Ammo
+  - EnemyShip
   layers:
   - Default
   - TransparentFX
