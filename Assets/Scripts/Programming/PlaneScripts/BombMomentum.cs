@@ -22,6 +22,9 @@ public class BombMomentum : MonoBehaviour
     private float lowestDistance;
 
     public bool isEnemy;
+    private bool attackingBase;
+
+    private float x;
 
     public void Start()
     {
@@ -51,16 +54,30 @@ public class BombMomentum : MonoBehaviour
             }
         }
 
-        if (bombLoc[0] == null)
-        {
-            bombLoc = new GameObject[1];
+        StartCoroutine(NoObjectFix());
+    }
 
-            closestObject = GameObject.FindGameObjectWithTag("PlaneCarrier");
+    public IEnumerator NoObjectFix()
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        if (bombLoc.Length == 0)
+        {
+            attackingBase = true;
         }
     }
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, closestObject.transform.position, bombSpeed * Time.deltaTime);
+        x = transform.position.x;
+
+        if (!attackingBase)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, closestObject.transform.position, bombSpeed * Time.deltaTime);
+        }
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(x -= 0.05f, transform.position.y,transform.position.z), bombSpeed * Time.deltaTime);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -10,6 +10,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0d5dbe88278ff8843a1b163421a346c7,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -66.84182
       objectReference: {fileID: 0}
@@ -58,6 +73,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0d5dbe88278ff8843a1b163421a346c7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -68,8 +88,166 @@ PrefabInstance:
       propertyPath: m_Name
       value: aichi d3a
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Target
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7939452472434041262}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2194369968661183569}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 117968915398638042}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2421155727998460910}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d5dbe88278ff8843a1b163421a346c7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 435064982452921907}
   m_SourcePrefab: {fileID: 100100000, guid: 0d5dbe88278ff8843a1b163421a346c7, type: 3}
+--- !u!1 &4605819774371147637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d5dbe88278ff8843a1b163421a346c7,
+    type: 3}
+  m_PrefabInstance: {fileID: 3686831260733379108}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &7939452472434041262
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605819774371147637}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 9
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2194369968661183569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605819774371147637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a72a5ac57d29964b97255edbaf1acc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planeName: 
+  planeClass: Bomber
+  description: 
+  type: American
+  projectile: {fileID: 3178435562633118401, guid: 3735afe392337884fbcdf18c6a478c02,
+    type: 3}
+  health: 75
+  damage: {x: 15, y: 25}
+  attackSpeed: 0
+  armor: 0
+  speed: 10
+  ammo: 1
+  destroyReward: 250
+  distanceFromDestination: 1
+  parentObject: {fileID: 0}
+  bombObject: {fileID: 0}
+  explosion: {fileID: 5098290221254473955, guid: 7b41505fea00c1645b6b570a2a28635d,
+    type: 3}
+  isAttacking: 0
+  isAttacker: 0
+  sortedShips: []
+  shipCheck: []
+--- !u!64 &117968915398638042
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605819774371147637}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4579454407841743219, guid: 0d5dbe88278ff8843a1b163421a346c7, type: 3}
+--- !u!114 &2421155727998460910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605819774371147637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c85e6f43b43dc40a88d4799c2423ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationNumber: 0
+  destination:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &435064982452921907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605819774371147637}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f157aae35bbff42920459c6a3a5626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shipSpawner: {fileID: 0}
+  enemyShips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemyShipTargets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  halfwayMark: {fileID: 0}
+  EndPoint: {fileID: 0}

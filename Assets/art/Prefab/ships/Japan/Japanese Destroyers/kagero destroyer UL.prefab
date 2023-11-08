@@ -135,7 +135,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!195 &9209007332761787916
 NavMeshAgent:
@@ -209,6 +209,7 @@ MonoBehaviour:
   detectionHitbox: {fileID: 2921089820562964955}
   destroyedShipMoney: 500
   isBaseTower: 0
+  isEnemyTower: 0
   shipSunk: 0
   nameDisplay: {fileID: 2782647739282809332}
   explosionParent: {fileID: 3691152763506834994}

@@ -236,7 +236,7 @@ MonoBehaviour:
   projectile: {fileID: 3178435562633118401, guid: 3735afe392337884fbcdf18c6a478c02,
     type: 3}
   health: 50
-  damage: {x: 15, y: 25}
+  damage: {x: 2, y: 3}
   attackSpeed: 0
   armor: 0
   speed: 12

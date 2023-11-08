@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12d7eaec9bbfad4e81092e37cc156e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombSpeed: 8
+  bombSpeed: 15
   bombLoc:
   - {fileID: 8320784747394710159, guid: b2ebffa84c0fef244948d77188e24b0b, type: 3}
   - {fileID: 7692766104950167920, guid: 97e2c19f51eb43044915ed2a884b8571, type: 3}
