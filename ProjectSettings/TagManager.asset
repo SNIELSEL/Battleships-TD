@@ -24,6 +24,7 @@ TagManager:
   - PlaneCarrier
   - Ammo
   - bomDropScreen
+  - EnemyShip
   layers:
   - Default
   - TransparentFX

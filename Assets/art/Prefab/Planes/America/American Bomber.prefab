@@ -154,7 +154,7 @@ MonoBehaviour:
   type: American
   projectile: {fileID: 3178435562633118401, guid: 03d47d541b5fe304b926cda375f75aa0,
     type: 3}
-  health: 50
+  health: 75
   damage: {x: 15, y: 25}
   attackSpeed: 0
   armor: 0

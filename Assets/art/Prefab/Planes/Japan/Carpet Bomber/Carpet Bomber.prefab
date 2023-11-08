@@ -233,7 +233,7 @@ MonoBehaviour:
   planeClass: Bomber
   description: 
   type: American
-  projectile: {fileID: 3178435562633118401, guid: 03d47d541b5fe304b926cda375f75aa0,
+  projectile: {fileID: 3178435562633118401, guid: 3735afe392337884fbcdf18c6a478c02,
     type: 3}
   health: 50
   damage: {x: 15, y: 25}

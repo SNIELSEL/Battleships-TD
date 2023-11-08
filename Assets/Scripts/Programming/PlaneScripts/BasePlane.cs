@@ -53,6 +53,7 @@ public class BasePlane : MonoBehaviour
     private FlagSchip flagSchip;
     private Money moneyScript;
     private ShipSpawner shipSpawner;
+    private bool shot;
 
     public void Start()
     {
@@ -70,14 +71,22 @@ public class BasePlane : MonoBehaviour
             Explode();
         }
 
-        if (ammo > 0 && isAttacking && !flagSchip.flagShipSunk)
+        if (ammo > 0 && isAttacking && !flagSchip.flagShipSunk && !shot)
         {
+            shot = true;
             ammo--;
 
             spawnedProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
             spawnedProjectile.GetComponent<BombMomentum>().damage = (int)Random.Range(damage.x,damage.y);
 
+            StartCoroutine(ShootingCoolDown());
         }
+    }
+
+    public IEnumerator ShootingCoolDown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        shot = false;
     }
 
     public void PlaneNavegation()
