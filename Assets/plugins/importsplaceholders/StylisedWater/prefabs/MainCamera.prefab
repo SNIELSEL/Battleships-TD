@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6522293289314646179}
   - component: {fileID: 2108936178556400474}
-  - component: {fileID: 2606601390937055329}
   - component: {fileID: 2864059935795200216}
+  - component: {fileID: 7393825061674770667}
   m_Layer: 8
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7595974802018736588}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23120701, y: 0.34275973, z: -0.08777885, w: 0.9062858}
+  m_LocalRotation: {x: 0.23120928, y: 0.34275705, z: -0.087781295, w: 0.906286}
   m_LocalPosition: {x: 1.0693121, y: 3.5587149, z: 1.6251307}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 28.637, y: 41.423, z: -0.04}
 --- !u!20 &2108936178556400474
 Camera:
   m_ObjectHideFlags: 0
@@ -52,7 +52,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 16.82338
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -67,13 +67,13 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 200
-  field of view: 45
+  field of view: 82
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 6967
+    m_Bits: 4294967295
   m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -85,14 +85,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &2606601390937055329
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7595974802018736588}
-  m_Enabled: 1
 --- !u!114 &2864059935795200216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,3 +129,11 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!81 &7393825061674770667
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7595974802018736588}
+  m_Enabled: 1

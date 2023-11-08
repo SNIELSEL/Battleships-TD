@@ -33,6 +33,7 @@ public class ShipBaseScript : MonoBehaviour
     public GameObject detectionHitbox;
     public int destroyedShipMoney;
     public bool isBaseTower;
+    public bool isEnemyTower;
     public bool shipSunk;
 
     //namedisplay
@@ -50,9 +51,12 @@ public class ShipBaseScript : MonoBehaviour
     private Money money;
     private RefundManager refund;
     private ShipSpawner shipSpawner;
+    private PlaneDetection planeDetection;
 
     public virtual void Start()
     {
+        planeDetection = gameObject.transform.Find("Detection").GetComponent<PlaneDetection>();
+
         shipSpawner = GameObject.Find("ScriptManager").GetComponent<ShipSpawner>();
 
         refund = GameObject.Find("ScriptManager").GetComponent<RefundManager>();
@@ -68,7 +72,10 @@ public class ShipBaseScript : MonoBehaviour
 
         if (!isBaseTower)
         {
-            shipSpawner.shipsSpawnedIn[shipSpawner.locationToSpawn] = gameObject;
+            if (!isEnemyTower)
+            {
+                shipSpawner.shipsSpawnedIn[shipSpawner.locationToSpawn] = gameObject;
+            }
         }
     }
 
@@ -83,6 +90,7 @@ public class ShipBaseScript : MonoBehaviour
         {
             shipSpawner.ShipRespawnTimer(respawnTime, shipIdentifyer);
 
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             GetComponent<NavMeshAgent>().enabled = false;
             SinkingShipRotation();
         }
@@ -136,7 +144,11 @@ public class ShipBaseScript : MonoBehaviour
 
     public void DetectedPlayer()
     {
-        Shoot();
+        if(planeDetection.enemy != null)
+        {
+            enemy = planeDetection.enemy;
+            Shoot();
+        }
     }
 
     public void NameSelection()
