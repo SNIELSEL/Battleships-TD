@@ -7,9 +7,14 @@ using UnityEngine.UI;
 public class SceneSwitch : MonoBehaviour
 {
     public float seconds = 10f;
+    public float loadSpeed;
     public Slider progressSlider;
     public GameObject loadingScreen;
     public GameObject menu;
+    public float smoothLoadProgress;
+    private AsyncOperation operation;
+    private bool doneWithSmoothLoad;
+    private bool begunLoading;
 
     public void Start()
     {
@@ -19,6 +24,25 @@ public class SceneSwitch : MonoBehaviour
         }
 
         loadingScreen.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (!doneWithSmoothLoad && begunLoading)
+        {
+            progressSlider.value = smoothLoadProgress;
+            smoothLoadProgress += loadSpeed * Time.deltaTime;
+        }
+
+        if(progressSlider.value >= 1)
+        {
+            doneWithSmoothLoad = true;
+        }
+
+        if (doneWithSmoothLoad)
+        {
+            operation.allowSceneActivation = true;
+        }
     }
     public void ToSwitch(int sceneToLoad)
     {
@@ -39,23 +63,19 @@ public class SceneSwitch : MonoBehaviour
 
     IEnumerator LoadSceneAsync(int levelInt)
     {
+        begunLoading = true;
         menu.SetActive(false);
         loadingScreen.SetActive(true);
 
-        AsyncOperation op = SceneManager.LoadSceneAsync(levelInt);
+        operation = SceneManager.LoadSceneAsync(levelInt);
 
-        op.allowSceneActivation = false;
+        operation.allowSceneActivation = false;
 
-        yield return new WaitForSeconds(5);
-
-        op.allowSceneActivation = true;
-
-        while (!op.isDone)
+        while (!operation.isDone)
         {
             int numOfRoundedDecimals = 1;
-            float progress = Mathf.Clamp01(op.progress / .9f);
+            float progress = Mathf.Clamp01(operation.progress / .9f);
             progress = Mathf.Round(progress * Mathf.Pow(10, numOfRoundedDecimals)) / Mathf.Pow(10, numOfRoundedDecimals);
-            progressSlider.value = progress;
             yield return null;
         }
     }

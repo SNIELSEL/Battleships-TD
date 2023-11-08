@@ -6294,9 +6294,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seconds: 10
+  loadSpeed: 0.25
   progressSlider: {fileID: 4595103}
   loadingScreen: {fileID: 686191245}
   menu: {fileID: 5738273675848013340}
+  smoothLoadProgress: 0
 --- !u!1 &1166685445
 GameObject:
   m_ObjectHideFlags: 0
@@ -12092,7 +12094,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.400003, y: 0}
+  m_AnchoredPosition: {x: -8.400024, y: 0}
   m_SizeDelta: {x: 16.799992, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5163486947346367249
