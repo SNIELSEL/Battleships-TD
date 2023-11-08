@@ -11,10 +11,7 @@ GameObject:
   - component: {fileID: 8866712344807897108}
   - component: {fileID: 2985995810137079767}
   - component: {fileID: 8109208739745590463}
-  - component: {fileID: 5532559659503763258}
   - component: {fileID: 3370686582045075045}
-  - component: {fileID: 247910214090605763}
-  - component: {fileID: 2577306246949938721}
   - component: {fileID: 9035181985813226922}
   - component: {fileID: -8263855639405979079}
   m_Layer: 3
@@ -34,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1927692685991158539}
   - {fileID: 4737094767598954893}
@@ -69,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: db3a0302892507c44980a7960da204b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -91,19 +88,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &5532559659503763258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728649108126122637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36aa02d38bb10b548bc7b8879596b15c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WaterVolumeHelper: {fileID: 0}
 --- !u!54 &3370686582045075045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -126,52 +110,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!195 &247910214090605763
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728649108126122637}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.58
-  m_Speed: 4
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 80
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1
-  m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!114 &2577306246949938721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1728649108126122637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8626119c725dc14199fd5143b0d25a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 247910214090605763}
-  destinations: []
-  parentObject: {fileID: 0}
-  LookatTransform: {fileID: 0}
-  waypointTag: WaypointSystem3
-  rotationTime: 0.5
-  isGhostShip: 0
 --- !u!114 &9035181985813226922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2353edfba8faa4ab526135f0a883cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  shipName: 
   ShipClass: Destroyer
   description: 
   type: Light
@@ -195,8 +138,20 @@ MonoBehaviour:
   armor: 20
   speed: 5
   respawnTime: 1
-  gunFov: {fileID: 5761485859758797024}
+  sinkTime: 0
+  cannonParent: {fileID: 0}
+  cannons: []
+  shootEffect: {fileID: 0}
+  detectionHitbox: {fileID: 0}
+  destroyedShipMoney: 0
+  isBaseTower: 0
+  shipSunk: 0
   nameDisplay: {fileID: 951105780117655342}
+  explosionParent: {fileID: 0}
+  explosionLocations: []
+  explosion: {fileID: 0}
+  sinkRotation: {fileID: 0}
+  isEnemy: 0
 --- !u!64 &-8263855639405979079
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -448,15 +403,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6300902052373309446}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5761485859758797024 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1767000764492175590, guid: 65fd106019f79b14a960c2a10d6e9a48,
-    type: 3}
-  m_PrefabInstance: {fileID: 6300902052373309446}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b95628e974cc784eb54aaaacb85ebbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

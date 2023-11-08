@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class PlaneDetection : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject enemy;
+    public GameObject[] planes;
+    public void OnTriggerEnter(Collider other)
     {
+        if( other.gameObject.tag == "Target")
+        {
+            enemy = other.gameObject;
+        }
+
+        /*planes = new GameObject[planes.Length + 1];
         
+        if (planes[0] == null)
+        {
+
+        }*/
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
-        
+        enemy = null;
     }
 }

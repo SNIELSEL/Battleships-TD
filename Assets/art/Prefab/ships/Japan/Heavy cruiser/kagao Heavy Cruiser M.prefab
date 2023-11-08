@@ -793,6 +793,7 @@ GameObject:
   - component: {fileID: 845103827780926297}
   - component: {fileID: 2973073900190452346}
   - component: {fileID: 1729218694248084520}
+  - component: {fileID: 6380919980173286007}
   m_Layer: 3
   m_Name: kagao Heavy Cruiser M
   m_TagString: Ship
@@ -881,7 +882,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952815299003654310}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36aa02d38bb10b548bc7b8879596b15c, type: 3}
   m_Name: 
@@ -909,10 +910,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!195 &3189981183392438128
 NavMeshAgent:
@@ -1015,6 +1016,23 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4493585093827132993, guid: 15685f72162797447aad72e6f5926b14, type: 3}
+--- !u!114 &6380919980173286007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952815299003654310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a9554e948b293468bef9da9cd35c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatVelocity: 1
+  floatSpeed: 0.1
+  minlocation: -1
+  currentLocation: 0
+  maxLocation: 1
 --- !u!1 &2064024830018883840
 GameObject:
   m_ObjectHideFlags: 0

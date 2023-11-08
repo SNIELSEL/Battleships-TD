@@ -358,7 +358,7 @@ Transform:
   m_GameObject: {fileID: 559716316111247658}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 37.2, y: 30.9, z: 0}
+  m_LocalPosition: {x: -37.2, y: 30.9, z: 0}
   m_LocalScale: {x: 1.2999997, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -721,61 +721,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &908080578189082360
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4608432644490011266}
-  - component: {fileID: 563088840397423533}
-  m_Layer: 3
-  m_Name: GunFov
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4608432644490011266
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908080578189082360}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 14.923996, y: 11.659998, z: 1}
-  m_LocalScale: {x: 10, y: 10, z: 13}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2524287881841370911}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &563088840397423533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908080578189082360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b95628e974cc784eb54aaaacb85ebbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Objectscanradius: 200
-  radius: 24
-  angle: 120
-  playerRef: {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 256
-  obstructionMask:
-    serializedVersion: 2
-    m_Bits: 128
-  canSeePlayer: 0
 --- !u!1 &1952815299003654310
 GameObject:
   m_ObjectHideFlags: 0
@@ -793,6 +738,7 @@ GameObject:
   - component: {fileID: 845103827780926297}
   - component: {fileID: 2973073900190452346}
   - component: {fileID: 1729218694248084520}
+  - component: {fileID: -1660453145510471079}
   m_Layer: 3
   m_Name: kagao Heavy Cruiser UL
   m_TagString: Ship
@@ -817,7 +763,6 @@ Transform:
   - {fileID: 1787889663696036187}
   - {fileID: 4793385996674632984}
   - {fileID: 5133912623875164575}
-  - {fileID: 4608432644490011266}
   - {fileID: 5146861951174106503}
   - {fileID: 4967324153522413057}
   - {fileID: 7678697580879916537}
@@ -881,7 +826,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952815299003654310}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36aa02d38bb10b548bc7b8879596b15c, type: 3}
   m_Name: 
@@ -909,10 +854,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!195 &3189981183392438128
 NavMeshAgent:
@@ -1015,6 +960,23 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4493585093827132993, guid: 15685f72162797447aad72e6f5926b14, type: 3}
+--- !u!114 &-1660453145510471079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952815299003654310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a9554e948b293468bef9da9cd35c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatVelocity: 1
+  floatSpeed: 0.1
+  minlocation: -1
+  currentLocation: 0
+  maxLocation: 1
 --- !u!1 &2064024830018883840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +1917,7 @@ PrefabInstance:
     - target: {fileID: 2736938973191161079, guid: 7020becf3e7c22b4a91a4cb7d667ee65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 107.2
+      value: -106.1
       objectReference: {fileID: 0}
     - target: {fileID: 2736938973191161079, guid: 7020becf3e7c22b4a91a4cb7d667ee65,
         type: 3}
