@@ -23,6 +23,7 @@ TagManager:
   - Target
   - PlaneCarrier
   - Ammo
+  - bomDropScreen
   layers:
   - Default
   - TransparentFX
