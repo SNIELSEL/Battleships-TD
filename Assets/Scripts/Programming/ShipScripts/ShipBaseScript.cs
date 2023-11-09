@@ -112,12 +112,18 @@ public class ShipBaseScript : MonoBehaviour
 
     void OnMouseOver()
     {
-        nameDisplay.gameObject.SetActive(true);
+        if (isEnemyTower)
+        {
+            nameDisplay.gameObject.SetActive(true);
+        }
     }
 
     void OnMouseExit()
     {
-        nameDisplay.gameObject.SetActive(false);
+        if (isEnemyTower)
+        {
+            nameDisplay.gameObject.SetActive(false);
+        }
     }
 
     public void Shoot()
