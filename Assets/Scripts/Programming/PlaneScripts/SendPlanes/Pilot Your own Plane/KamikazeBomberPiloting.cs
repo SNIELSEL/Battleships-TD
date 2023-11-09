@@ -19,6 +19,8 @@ public class KamikazeBomberPiloting : MonoBehaviour
     {
         flightSpeed = startSpeed;
 
+        tPPCamera = GameObject.FindGameObjectWithTag("BoemCamera").transform;
+
         target = tPPCamera.transform.localRotation;
         rb = GetComponent<Rigidbody>();
 

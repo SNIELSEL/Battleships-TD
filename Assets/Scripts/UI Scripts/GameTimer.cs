@@ -30,19 +30,6 @@ public class GameTimer : MonoBehaviour
 
     public void Update()
     {
-        if (planeSender.cheatWon)
-        {
-            for (int i = 0; i < toDisable.Length; i++)
-            {
-                toDisable[i].SetActive(false);
-            }
-
-            for (int i = 0; i < toEnableWin.Length; i++)
-            {
-                toEnableWin[i].SetActive(true);
-            }
-        }
-
         if (Input.GetKeyDown(KeyCode.F12))
         {
             seconds = 5f;

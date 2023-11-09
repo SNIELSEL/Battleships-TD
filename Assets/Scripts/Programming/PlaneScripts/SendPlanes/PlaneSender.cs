@@ -12,9 +12,6 @@ public class PlaneSender : MonoBehaviour
     public int planeNumber;
 
     private Money moneyScrip;
-
-    private int cheatWin;
-    public bool cheatWon;
     public void Start()
     {
         moneyScrip = gameObject.GetComponent<Money>();
@@ -22,17 +19,7 @@ public class PlaneSender : MonoBehaviour
 
     public void Update()
     {
-        if(cheatWin == 10)
-        {
-            StartCoroutine(WinGame());
-        }
-    }
 
-    public IEnumerator WinGame()
-    {
-        yield return new WaitForSeconds(15);
-
-        cheatWon = true;
     }
 
     public void SpawnPlane()
@@ -42,7 +29,6 @@ public class PlaneSender : MonoBehaviour
             Instantiate(planePrefab[planeNumber], spawnlocation.position, spawnlocation.rotation, parentObject);
 
             moneyScrip.money -= planeCost[planeNumber];
-            cheatWin++;
         }
     }
 

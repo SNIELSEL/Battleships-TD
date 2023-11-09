@@ -91,7 +91,11 @@ public class ShipBaseScript : MonoBehaviour
             shipSpawner.ShipRespawnTimer(respawnTime, shipIdentifyer);
 
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            GetComponent<NavMeshAgent>().enabled = false;
+
+            if(GetComponent<NavMeshAgent>() != null)
+            {
+                GetComponent<NavMeshAgent>().enabled = false;
+            }
             SinkingShipRotation();
         }
 

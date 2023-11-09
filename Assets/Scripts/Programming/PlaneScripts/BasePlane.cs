@@ -18,6 +18,7 @@ public class BasePlane : MonoBehaviour
     [Header("stats")]
     public float health;
     public Vector2 damage;
+    public int nonRandomDmg;
     public float attackSpeed;
     public float armor;
     public int speed;
@@ -57,6 +58,8 @@ public class BasePlane : MonoBehaviour
 
     public void Start()
     {
+        nonRandomDmg = (int)Random.Range(damage.x, damage.y);
+
         ComponentAssigner();
         TowerScan();
         PlaneNavegation();
@@ -77,7 +80,7 @@ public class BasePlane : MonoBehaviour
             ammo--;
 
             spawnedProjectile = Instantiate(projectile, transform.position, transform.rotation) as GameObject;
-            spawnedProjectile.GetComponent<BombMomentum>().damage = (int)Random.Range(damage.x,damage.y);
+            spawnedProjectile.GetComponent<BombMomentum>().damage = nonRandomDmg;
 
             StartCoroutine(ShootingCoolDown());
         }

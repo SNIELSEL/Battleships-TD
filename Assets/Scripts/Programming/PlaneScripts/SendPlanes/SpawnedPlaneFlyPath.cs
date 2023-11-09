@@ -51,7 +51,16 @@ public class SpawnedPlaneFlyPath : MonoBehaviour
         else if (destinationNumber == 3)
         {
             GetComponent<SpawnedPlaneFlyPath>().enabled = false;
-            GetComponent<EnemyTargetNav>().enabled = true;
+
+            if (GetComponent<EnemyTargetNav>() != null)
+            {
+                GetComponent<EnemyTargetNav>().enabled = true;
+            }
+
+            if (GetComponent<KamikazeBomberPiloting>() != null)
+            {
+                GetComponent<KamikazeBomberPiloting>().enabled = true;
+            }
         }
     }
 }

@@ -15,6 +15,7 @@ public class SceneSwitch : MonoBehaviour
     private AsyncOperation operation;
     private bool doneWithSmoothLoad;
     private bool begunLoading;
+    private bool inMain; 
 
     public void Start()
     {
@@ -23,25 +24,36 @@ public class SceneSwitch : MonoBehaviour
             StartCoroutine(SwitchToMain(1));
         }
 
-        loadingScreen.SetActive(false);
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            inMain = true;
+        }
+
+        if (!inMain)
+        {
+            loadingScreen.SetActive(false);
+        }
     }
 
     private void Update()
     {
-        if (!doneWithSmoothLoad && begunLoading)
+        if (!inMain)
         {
-            progressSlider.value = smoothLoadProgress;
-            smoothLoadProgress += loadSpeed * Time.deltaTime;
-        }
+            if (!doneWithSmoothLoad && begunLoading)
+            {
+                progressSlider.value = smoothLoadProgress;
+                smoothLoadProgress += loadSpeed * Time.deltaTime;
+            }
 
-        if(progressSlider.value >= 1)
-        {
-            doneWithSmoothLoad = true;
-        }
+            if (progressSlider.value >= 1)
+            {
+                doneWithSmoothLoad = true;
+            }
 
-        if (doneWithSmoothLoad)
-        {
-            operation.allowSceneActivation = true;
+            if (doneWithSmoothLoad)
+            {
+                operation.allowSceneActivation = true;
+            }
         }
     }
     public void ToSwitch(int sceneToLoad)

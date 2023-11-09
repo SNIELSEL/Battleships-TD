@@ -26,7 +26,10 @@ public class Boatnavigation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<WateverVolumeFloater>().enabled = false;
+        if(GetComponent<WateverVolumeFloater>() != null)
+        {
+            GetComponent<WateverVolumeFloater>().enabled = false;
+        }
         shipSpawner = GameObject.Find("ScriptManager").GetComponent<ShipSpawner>();
 
         if (!isGhostShip && LookatTransform == null && shipSpawner.locationToSpawn != 4)
@@ -83,10 +86,13 @@ public class Boatnavigation : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         transform.rotation = new quaternion(0, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-        GetComponent<WateverVolumeFloater>().WaterVolumeHelper = GameObject.FindGameObjectWithTag("WaterLayer").GetComponent<WaterVolumeHelper>();
+        if (GetComponent<WateverVolumeFloater>() != null)
+        {
+            GetComponent<WateverVolumeFloater>().WaterVolumeHelper = GameObject.FindGameObjectWithTag("WaterLayer").GetComponent<WaterVolumeHelper>();
+            GetComponent<WateverVolumeFloater>().enabled = false;
+        }
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<Boatnavigation>().enabled = false;
-        GetComponent<WateverVolumeFloater>().enabled = false;
         GetComponent<Rigidbody>().useGravity = false;
 
         if (isGhostShip)

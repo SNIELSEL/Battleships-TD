@@ -25,7 +25,7 @@ public class EnemyTargetNav : MonoBehaviour
         halfwayMark = GameObject.Find("HalfWayMark");
         EndPoint = GameObject.Find("EndPoint");
 
-        destinationNumber = Random.Range(1, 5);
+        destinationNumber = Random.Range(0, 5);
 
         ComponentAssigner();
 
@@ -47,6 +47,16 @@ public class EnemyTargetNav : MonoBehaviour
 
     private void Update()
     {
+        if (enemyShips[destinationNumber].GetComponent<ShipBaseScript>() == null)
+        {
+            destinationNumber = Random.Range(0, 5);
+        }
+
+        if (enemyShips[destinationNumber].GetComponent<ShipBaseScript>().shipSunk)
+        {
+            destinationNumber = Random.Range(0, 5);
+        }
+       
         if (Vector3.Distance(transform.position, halfwayMark.transform.position) <= 2)
         {
             overHalfwayMark = true;

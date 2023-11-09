@@ -25,6 +25,8 @@ TagManager:
   - Ammo
   - bomDropScreen
   - EnemyShip
+  - EnemyBase
+  - BoemCamera
   layers:
   - Default
   - TransparentFX
