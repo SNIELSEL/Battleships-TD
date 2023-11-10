@@ -32,6 +32,8 @@ public class ShipBaseScript : MonoBehaviour
     public GameObject shootEffect;
     public GameObject detectionHitbox;
     public int destroyedShipMoney;
+
+    public bool isSupportTower;
     public bool isBaseTower;
     public bool isEnemyTower;
     public bool shipSunk;
@@ -63,9 +65,12 @@ public class ShipBaseScript : MonoBehaviour
 
         money = GameObject.Find("ScriptManager").GetComponent<Money>();
 
-        for (int i = 0; i < cannonParent.childCount; i++)
+        if (!isSupportTower)
         {
-            cannons.Add(cannonParent.GetChild(i));
+            for (int i = 0; i < cannonParent.childCount; i++)
+            {
+                cannons.Add(cannonParent.GetChild(i));
+            }
         }
 
         beginAttackSpeed = attackSpeed;
@@ -101,7 +106,11 @@ public class ShipBaseScript : MonoBehaviour
 
         ShipDestroyed();
         NameSelection();
-        DetectedPlayer();
+
+        if (!isSupportTower)
+        {
+            DetectedPlayer();
+        }
 
         if (sinkTimerUp)
         {
@@ -112,7 +121,7 @@ public class ShipBaseScript : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (isEnemyTower)
+        if (!isEnemyTower)
         {
             nameDisplay.gameObject.SetActive(true);
         }
@@ -120,7 +129,7 @@ public class ShipBaseScript : MonoBehaviour
 
     void OnMouseExit()
     {
-        if (isEnemyTower)
+        if (!isEnemyTower)
         {
             nameDisplay.gameObject.SetActive(false);
         }

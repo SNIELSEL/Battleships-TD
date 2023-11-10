@@ -987,6 +987,7 @@ MonoBehaviour:
   detectionHitbox: {fileID: 4361687576826612113}
   destroyedShipMoney: 1250
   isBaseTower: 0
+  isEnemyTower: 0
   shipSunk: 0
   nameDisplay: {fileID: 909967808322137062}
   explosionParent: {fileID: 5146861951174106503}
@@ -1973,7 +1974,7 @@ PrefabInstance:
     - target: {fileID: 2736938973191161079, guid: 7020becf3e7c22b4a91a4cb7d667ee65,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -109.6
+      value: -259.4
       objectReference: {fileID: 0}
     - target: {fileID: 2736938973191161079, guid: 7020becf3e7c22b4a91a4cb7d667ee65,
         type: 3}
