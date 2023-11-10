@@ -1,4 +1,5 @@
 using Bitgem.VFX.StylisedWater;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +48,8 @@ public class FlagSchip : ShipBaseScript
 
         if (flagShipSunk)
         {
+            Debug.Log("hi");
+
             for (int i = 0; i < toDisable.Length; i++)
             {
                 toDisable[i].SetActive(false);

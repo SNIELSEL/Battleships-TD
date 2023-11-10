@@ -57,7 +57,10 @@ public class ShipBaseScript : MonoBehaviour
 
     public virtual void Start()
     {
-        planeDetection = gameObject.transform.Find("Detection").GetComponent<PlaneDetection>();
+        if (!isSupportTower)
+        {
+            planeDetection = gameObject.transform.Find("Detection").GetComponent<PlaneDetection>();
+        }
 
         shipSpawner = GameObject.Find("ScriptManager").GetComponent<ShipSpawner>();
 
@@ -172,24 +175,27 @@ public class ShipBaseScript : MonoBehaviour
 
     public void NameSelection()
     {
-        if (!nameSelected)
+        if(nameDisplay != null)
         {
-            shipName = GetRandomName();
-        }
-        if (gameObject.name != "Temp" && !nameSelected)
-        {
-            nameText = nameDisplay.gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
-            nameText.text = shipName;
-
-            if (shipName == "Unsinkable")
+            if (!nameSelected)
             {
-                Debug.Log("Unsinkable");
+                shipName = GetRandomName();
             }
+            if (gameObject.name != "Temp" && !nameSelected)
+            {
+                nameText = nameDisplay.gameObject.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
+                nameText.text = shipName;
+
+                if (shipName == "Unsinkable")
+                {
+                    Debug.Log("Unsinkable");
+                }
+            }
+
+            nameSelected = true;
+
+            nameDisplay.transform.rotation = Quaternion.LookRotation(transform.position - GameObject.FindGameObjectWithTag("MainCamera").transform.position);
         }
-
-        nameSelected = true;
-
-        nameDisplay.transform.rotation = Quaternion.LookRotation(transform.position - GameObject.FindGameObjectWithTag("MainCamera").transform.position);
     }
     public string GetRandomName()
     {

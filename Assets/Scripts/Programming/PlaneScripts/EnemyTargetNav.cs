@@ -49,12 +49,26 @@ public class EnemyTargetNav : MonoBehaviour
     {
         if (enemyShips[destinationNumber].GetComponent<ShipBaseScript>() == null)
         {
-            destinationNumber = Random.Range(0, 5);
+            if(enemyShips.Length == 1)
+            {
+                destinationNumber = Random.Range(1, 1);
+            }
+            else
+            {
+                destinationNumber = Random.Range(0, 5);
+            }
         }
 
         if (enemyShips[destinationNumber].GetComponent<ShipBaseScript>().shipSunk)
         {
-            destinationNumber = Random.Range(0, 5);
+            if (enemyShips.Length == 1)
+            {
+                destinationNumber = Random.Range(1, 1);
+            }
+            else
+            {
+                destinationNumber = Random.Range(0, 5);
+            }
         }
        
         if (Vector3.Distance(transform.position, halfwayMark.transform.position) <= 2)

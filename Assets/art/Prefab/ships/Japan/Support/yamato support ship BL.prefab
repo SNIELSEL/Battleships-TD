@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 5832593609623228889}
   m_Layer: 0
   m_Name: yamato support ship BL
-  m_TagString: Untagged
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,6 +176,7 @@ Transform:
   - {fileID: 6640911249356787866}
   - {fileID: 8789838699714566154}
   - {fileID: 8566095717888402523}
+  - {fileID: 5444474740253800115}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &4959322648906965183
@@ -268,8 +269,14 @@ MonoBehaviour:
   explosion: {fileID: 7912267248823628536, guid: b52c0243a816a6b47a43b543ec883a96,
     type: 3}
   sinkRotation: {fileID: 6888511073086600876}
-  planes: []
-  spawnlocation: {fileID: 0}
+  planes:
+  - {fileID: 6547387973470704427, guid: 147a5a334b78fab41a3fe54563a67c64, type: 3}
+  - {fileID: 4605819774371147637, guid: 1421e9b0eb7b4174080ecaa2d5b7f212, type: 3}
+  spawnlocation: {fileID: 4478548669761990615}
+  spawnTimer: 30
+  startSpawnTime: 0
+  planeInt: 0
+  planeToSpawn: 0
 --- !u!54 &7169143702071290681
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -377,6 +384,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -462981019419857548, guid: d3c9113bbe61d0a48bcd51120bdc4f3e, type: 3}
+--- !u!1 &4478548669761990615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5444474740253800115}
+  m_Layer: 0
+  m_Name: planeSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5444474740253800115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4478548669761990615}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 16.79, z: -90.62}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5377728992218025625}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6055793687869281841
 GameObject:
   m_ObjectHideFlags: 0
