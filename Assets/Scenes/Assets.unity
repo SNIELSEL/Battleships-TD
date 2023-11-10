@@ -2945,6 +2945,74 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1894535899}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2023981520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -492.10895
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -43.77408
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d3c9113bbe61d0a48bcd51120bdc4f3e,
+        type: 3}
+      propertyPath: m_Name
+      value: yamato maar dan vligetuig katapult
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d3c9113bbe61d0a48bcd51120bdc4f3e, type: 3}
 --- !u!1001 &2080406674
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3405,3 +3473,4 @@ SceneRoots:
   - {fileID: 695209874}
   - {fileID: 2080406674}
   - {fileID: 1131471422}
+  - {fileID: 2023981520}
