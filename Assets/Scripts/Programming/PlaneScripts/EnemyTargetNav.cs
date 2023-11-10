@@ -14,14 +14,20 @@ public class EnemyTargetNav : MonoBehaviour
 
     public GameObject halfwayMark;
     public GameObject EndPoint;
+    public GameObject baseTower;
+    public GameObject baseTarget;
 
     private int destinationNumber;
+    private int emptyShip;
 
+    private bool noships;
     private bool overHalfwayMark;
     private bool droppedBomb;
 
     public void Start()
     {
+        baseTower = GameObject.Find("EnemyBase");
+
         halfwayMark = GameObject.Find("HalfWayMark");
         EndPoint = GameObject.Find("EndPoint");
 
@@ -38,6 +44,16 @@ public class EnemyTargetNav : MonoBehaviour
                 enemyShipTargets[i] = enemyShips[i].transform.Find("EnemyTarget").gameObject;
             }
         }
+
+        baseTarget = baseTower.transform.Find("EnemyTarget").gameObject;
+
+        for (int i = 0; i < enemyShips.Length; i++)
+        {
+            if (enemyShips[i] == null)
+            {
+                emptyShip++;
+            }
+        }
     }
 
     public void ComponentAssigner()
@@ -47,15 +63,20 @@ public class EnemyTargetNav : MonoBehaviour
 
     private void Update()
     {
+        if(emptyShip >= enemyShips.Length)
+        {
+            noships = true;
+        }
+
         if (enemyShips[destinationNumber].GetComponent<ShipBaseScript>() == null)
         {
-            if(enemyShips.Length == 1)
+            if (enemyShips.Length == 1)
             {
                 destinationNumber = Random.Range(1, 1);
             }
             else
             {
-                destinationNumber = Random.Range(0, enemyShips.Length -1);
+                destinationNumber = Random.Range(0, enemyShips.Length - 1);
             }
         }
 
@@ -67,10 +88,16 @@ public class EnemyTargetNav : MonoBehaviour
             }
             else
             {
-                destinationNumber = Random.Range(0, enemyShips.Length -1);
+                destinationNumber = Random.Range(0, enemyShips.Length - 1);
             }
         }
-       
+
+        if (enemyShips[destinationNumber] == null)
+        {
+            destinationNumber++;
+        }
+
+
         if (Vector3.Distance(transform.position, halfwayMark.transform.position) <= 2)
         {
             overHalfwayMark = true;
@@ -82,15 +109,31 @@ public class EnemyTargetNav : MonoBehaviour
             droppedBomb = true;
         }
 
-        if (overHalfwayMark && !droppedBomb)
+        if (!noships)
         {
-            transform.LookAt(enemyShipTargets[destinationNumber].transform);
-            transform.position = Vector3.MoveTowards(transform.position, enemyShipTargets[destinationNumber].transform.position, GetComponent<BasePlane>().speed * Time.deltaTime);
+            if (overHalfwayMark && !droppedBomb)
+            {
+                transform.LookAt(enemyShipTargets[destinationNumber].transform);
+                transform.position = Vector3.MoveTowards(transform.position, enemyShipTargets[destinationNumber].transform.position, GetComponent<BasePlane>().speed * Time.deltaTime);
+            }
+            else if (!droppedBomb)
+            {
+                transform.LookAt(halfwayMark.transform);
+                transform.position = Vector3.MoveTowards(transform.position, halfwayMark.transform.position, GetComponent<BasePlane>().speed * Time.deltaTime);
+            }
         }
-        else if (!droppedBomb)
+        else
         {
-            transform.LookAt(halfwayMark.transform);
-            transform.position = Vector3.MoveTowards(transform.position, halfwayMark.transform.position, GetComponent<BasePlane>().speed * Time.deltaTime);
+            if (overHalfwayMark && !droppedBomb)
+            {
+                transform.LookAt(baseTarget.transform);
+                transform.position = Vector3.MoveTowards(transform.position, baseTarget.transform.position, GetComponent<BasePlane>().speed * Time.deltaTime);
+            }
+            else if (!droppedBomb)
+            {
+                transform.LookAt(halfwayMark.transform);
+                transform.position = Vector3.MoveTowards(transform.position, halfwayMark.transform.position, GetComponent<BasePlane>().speed * Time.deltaTime);
+            }
         }
 
         if (droppedBomb)
