@@ -55,7 +55,7 @@ public class EnemyTargetNav : MonoBehaviour
             }
             else
             {
-                destinationNumber = Random.Range(0, 5);
+                destinationNumber = Random.Range(0, enemyShips.Length -1);
             }
         }
 
@@ -67,7 +67,7 @@ public class EnemyTargetNav : MonoBehaviour
             }
             else
             {
-                destinationNumber = Random.Range(0, 5);
+                destinationNumber = Random.Range(0, enemyShips.Length -1);
             }
         }
        
