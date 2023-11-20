@@ -316,8 +316,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   halfwayMark: {fileID: 0}
   EndPoint: {fileID: 0}
+  baseTower: {fileID: 0}
+  baseTarget: {fileID: 0}
 --- !u!1 &7161598027923240858
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ public class BombMomentum : MonoBehaviour
         if (isEnemy)
         {
             bombLoc = GameObject.FindGameObjectsWithTag("EnemyShip");
+            bombLoc = GameObject.FindGameObjectsWithTag("EnemyBase");
         }
         else if (!isEnemy)
         {
@@ -81,7 +82,7 @@ public class BombMomentum : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Ship" || collision.gameObject.tag == "PlaneCarrier" || collision.gameObject.tag == "EnemyShip")
+        if(collision.gameObject.tag == "Ship" || collision.gameObject.tag == "PlaneCarrier" || collision.gameObject.tag == "EnemyShip" || collision.gameObject.tag == "EnemyBase")
         {
             gameObject.SetActive(false);
             Instantiate(explosion, transform.position, transform.rotation, parentObject);

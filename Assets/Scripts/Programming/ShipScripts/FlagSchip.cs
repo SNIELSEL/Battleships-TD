@@ -17,7 +17,11 @@ public class FlagSchip : ShipBaseScript
         if (health <= 0)
         {
             GetComponent<Rigidbody>().useGravity = true;
-            this.GetComponent<WateverVolumeFloater>().enabled = false;
+            
+            if (GetComponent<WateverVolumeFloater>() != null)
+            {
+                GetComponent<WateverVolumeFloater>().enabled = false;
+            }
 
             shipSunk = true;
             flagShipSunk = true;
@@ -27,6 +31,7 @@ public class FlagSchip : ShipBaseScript
 
     public override void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.F10))
         {
             health = 10;

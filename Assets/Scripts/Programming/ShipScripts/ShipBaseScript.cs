@@ -37,13 +37,14 @@ public class ShipBaseScript : MonoBehaviour
     public bool isBaseTower;
     public bool isEnemyTower;
     public bool shipSunk;
+    public bool isEiland;
 
     //namedisplay
     public Canvas nameDisplay;
 
     //Private variables
     private TextMeshProUGUI nameText;
-    private string[] names = new string[] { "3D Waffle", "Unsinkable", "Hightower", "101", "Houston", "GatlingGun", "Accidental Genius", "Prometheus", "Psycho, Pusher", "Junkyard Dog", "Roadblock", "Rooster", "Breadmaker", "Kill Switch", "Scrapper", "Buckshot", "Chocolate", "Knuckles", "Shadow Chaser", "Gladiator", "Liquid Science", "Shooter", "Capital F", "Cobra", "Sidewalk Enforcer", "Captain Peroxide", "General", "Skull Crusher", "Boa Lover", "Sky Bully", "Cereal Killer", "Lord Pistachio", "Blackout", "Mad American", "Snake Eyes", "Chocolate Thunder", "Mad Jack","Snow Hound", "Mad Rascal", "Sofa King", "Commando", "Speedwell", "Marbles", "Cosmo", "Married Man", "Springheel Jack", "Crash Override", "Marshmallow", "Crash Test", "Mental", "Stacker of Wheat", "Crazy Eights", "Mercury Reborn", "Sugar Man", "Midas", "Suicide Jockey", "Cross Thread", "Midnight Rambler", "Swampmasher", "Midnight Rider", "Swerve", "Dancing Madman", "Mindless Bobcat", "Mr. 44", "Take Away", "Dark Horse", "Mr. Fabulous", "Tan Stallion", "Day Hawk", "Mr. Gadget", "The China Wall", "Desert Haze", "HMS Uncooked Rise", "Mr. Lucky", "The Dude", "Digger", "Mr. Peppermint", "The Flying Mouse", "Disco Thunder", "Mr. Spy", "The Happy Jock", "Disco Potato", "Mr. Thanksgiving", "Dr. Cocktail", "Mr. Wholesome", "Thrasher", "Dropkick", "Mule Skinner", "Toolmaker", "Drop Stone", "Murmur", "Tough Nut", "Nacho", "Trip", "Easy Sweep", "Natural Mess", "Electric Player", "Necromancer", "Turnip King", "Twitch", "Fast Draw", "Nessie", "Nickname Master", "Vortex", "Freak", "Nightmare King", "Night Train", "Wheels", "Grave Digger", "Guillotine", "Gunhawk", "Zero", "Highlander", "Zod", "Blinker", "RawSkills", "Predator", "Dark Matter", "ThermalMode", "Roadspike", "Kazami of Truth", "Eye Devil", "Stealth", "Apex", "DragonBlood", "DeathDancer", "Sweet Bacon", "Coldy", "Sepukku", "1st Degree Burn", "Ice", "Steel", "Forger", "Kamikaze Grandma", "Infinite Hole", "Vermilion", "BlackExcalibur", "Rocket", "Third Moon", "The Final Judgement", "Trash Master", "Outlaw", "Slicer", "Liquid Death", "FLAK Angel", "Helmet Destroyer", "Leaf Assassin", "Killer Grenade", "Engine Killer" };
+    private string[] names = new string[] { "3D Waffle", "Unsinkable", "Hightower", "101", "Houston", "GatlingGun", "Accidental Genius", "Prometheus", "Psycho, Pusher", "Junkyard Dog", "Roadblock", "Rooster", "Breadmaker", "Kill Switch", "Scrapper", "Buckshot", "Chocolate", "Knuckles", "Shadow Chaser", "Gladiator", "Liquid Science", "Shooter", "Capital F", "Cobra", "Sidewalk Enforcer", "Captain Peroxide", "General", "Skull Crusher", "Boa Lover", "Sky Bully", "Cereal Killer", "Lord Pistachio", "Blackout", "Mad American", "Snake Eyes", "Chocolate Thunder", "Mad Jack", "Snow Hound", "Mad Rascal", "Sofa King", "Commando", "Speedwell", "Marbles", "Cosmo", "Married Man", "Springheel Jack", "Crash Override", "Marshmallow", "Crash Test", "Mental", "Stacker of Wheat", "Crazy Eights", "Mercury Reborn", "Sugar Man", "Midas", "Suicide Jockey", "Cross Thread", "Midnight Rambler", "Swampmasher", "Midnight Rider", "Swerve", "Dancing Madman", "Mindless Bobcat", "Mr. 44", "Take Away", "Dark Horse", "Mr. Fabulous", "Tan Stallion", "Day Hawk", "Mr. Gadget", "The China Wall", "Desert Haze", "HMS Uncooked Rise", "Mr. Lucky", "The Dude", "Digger", "Mr. Peppermint", "The Flying Mouse", "Disco Thunder", "Mr. Spy", "The Happy Jock", "Disco Potato", "Mr. Thanksgiving", "Dr. Cocktail", "Mr. Wholesome", "Thrasher", "Dropkick", "Mule Skinner", "Toolmaker", "Drop Stone", "Murmur", "Tough Nut", "Nacho", "Trip", "Easy Sweep", "Natural Mess", "Electric Player", "Necromancer", "Turnip King", "Twitch", "Fast Draw", "Nessie", "Nickname Master", "Vortex", "Freak", "Nightmare King", "Night Train", "Wheels", "Grave Digger", "Guillotine", "Gunhawk", "Zero", "Highlander", "Zod", "Blinker", "RawSkills", "Predator", "Dark Matter", "ThermalMode", "Roadspike", "Kazami of Truth", "Eye Devil", "Stealth", "Apex", "DragonBlood", "DeathDancer", "Sweet Bacon", "Coldy", "Sepukku", "1st Degree Burn", "Ice", "Steel", "Forger", "Kamikaze Grandma", "Infinite Hole", "Vermilion", "BlackExcalibur", "Rocket", "Third Moon", "The Final Judgement", "Trash Master", "Outlaw", "Slicer", "Liquid Death", "FLAK Angel", "Helmet Destroyer", "Leaf Assassin", "Killer Grenade", "Engine Killer" };
     private GameObject enemy;
     private Vector3 boatPosition;
     private float beginAttackSpeed;
@@ -57,9 +58,9 @@ public class ShipBaseScript : MonoBehaviour
 
     public virtual void Start()
     {
-        if (!isSupportTower)
+        if (!isSupportTower || !isEiland && planeDetection != null)
         {
-            planeDetection = gameObject.transform.Find("Detection").GetComponent<PlaneDetection>();
+            //planeDetection = gameObject.transform.Find("Detection").GetComponent<PlaneDetection>();
         }
 
         shipSpawner = GameObject.Find("ScriptManager").GetComponent<ShipSpawner>();
@@ -68,11 +69,14 @@ public class ShipBaseScript : MonoBehaviour
 
         money = GameObject.Find("ScriptManager").GetComponent<Money>();
 
-        if (!isSupportTower)
+        if (!isSupportTower || !isEiland && cannonParent != null)
         {
             for (int i = 0; i < cannonParent.childCount; i++)
             {
-                cannons.Add(cannonParent.GetChild(i));
+                if(cannonParent != null)
+                {
+                    cannons.Add(cannonParent.GetChild(i));
+                }
             }
         }
 
@@ -96,7 +100,10 @@ public class ShipBaseScript : MonoBehaviour
 
         if (shipSunk)
         {
-            shipSpawner.ShipRespawnTimer(respawnTime, shipIdentifyer);
+            if (!isEnemyTower && !isEiland)
+            {
+                shipSpawner.ShipRespawnTimer(respawnTime, shipIdentifyer);
+            }
 
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
 
@@ -104,13 +111,17 @@ public class ShipBaseScript : MonoBehaviour
             {
                 GetComponent<NavMeshAgent>().enabled = false;
             }
-            SinkingShipRotation();
+
+            if (!isEiland)
+            {
+                SinkingShipRotation();
+            }
         }
 
         ShipDestroyed();
         NameSelection();
 
-        if (!isSupportTower)
+        if (!isSupportTower || !isEiland)
         {
             DetectedPlayer();
         }
@@ -166,7 +177,7 @@ public class ShipBaseScript : MonoBehaviour
 
     public void DetectedPlayer()
     {
-        if(planeDetection.enemy != null)
+        if(planeDetection!= null && planeDetection.enemy != null)
         {
             enemy = planeDetection.enemy;
             Shoot();
@@ -211,9 +222,12 @@ public class ShipBaseScript : MonoBehaviour
             shipSunk = true;
 
             GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<WateverVolumeFloater>().enabled = false;
+            if (GetComponent<WateverVolumeFloater>() != null)
+            {
+                GetComponent<WateverVolumeFloater>().enabled = false;
+            }
 
-            if(!tempBool)
+            if(!tempBool && isEnemyTower)
             {
                 tempBool = true;
                 money.money += destroyedShipMoney;
@@ -232,7 +246,10 @@ public class ShipBaseScript : MonoBehaviour
 
         health = 0;
 
-        GetComponent<WateverVolumeFloater>().enabled = false;
+        if (GetComponent<WateverVolumeFloater>() != null)
+        {
+            GetComponent<WateverVolumeFloater>().enabled = false;
+        }
 
         for (int i = 0; i < explosionParent.childCount; i++)
         {

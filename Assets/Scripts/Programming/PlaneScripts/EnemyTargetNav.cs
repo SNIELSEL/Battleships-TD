@@ -26,14 +26,16 @@ public class EnemyTargetNav : MonoBehaviour
 
     public void Start()
     {
-        baseTower = GameObject.Find("EnemyBase");
+        ComponentAssigner();
+
+        baseTarget = shipSpawner.enemyTarget;
+        baseTower = shipSpawner.enemyBase;
 
         halfwayMark = GameObject.Find("HalfWayMark");
         EndPoint = GameObject.Find("EndPoint");
 
         destinationNumber = Random.Range(0, 5);
 
-        ComponentAssigner();
 
         enemyShips = shipSpawner.enemyShips;
 
@@ -45,7 +47,6 @@ public class EnemyTargetNav : MonoBehaviour
             }
         }
 
-        baseTarget = baseTower.transform.Find("EnemyTarget").gameObject;
 
         for (int i = 0; i < enemyShips.Length; i++)
         {
@@ -53,6 +54,15 @@ public class EnemyTargetNav : MonoBehaviour
             {
                 emptyShip++;
             }
+        }
+
+        if (enemyShips.Length == 1)
+        {
+            destinationNumber = Random.Range(1, 1);
+        }
+        else
+        {
+            destinationNumber = Random.Range(0, enemyShips.Length - 1);
         }
     }
 
@@ -63,33 +73,10 @@ public class EnemyTargetNav : MonoBehaviour
 
     private void Update()
     {
+
         if(emptyShip >= enemyShips.Length)
         {
             noships = true;
-        }
-
-        if (enemyShips[destinationNumber].GetComponent<ShipBaseScript>() == null)
-        {
-            if (enemyShips.Length == 1)
-            {
-                destinationNumber = Random.Range(1, 1);
-            }
-            else
-            {
-                destinationNumber = Random.Range(0, enemyShips.Length - 1);
-            }
-        }
-
-        if (enemyShips[destinationNumber].GetComponent<ShipBaseScript>().shipSunk)
-        {
-            if (enemyShips.Length == 1)
-            {
-                destinationNumber = Random.Range(1, 1);
-            }
-            else
-            {
-                destinationNumber = Random.Range(0, enemyShips.Length - 1);
-            }
         }
 
         if (enemyShips[destinationNumber] == null)
@@ -103,10 +90,21 @@ public class EnemyTargetNav : MonoBehaviour
             overHalfwayMark = true;
         }
 
-        if (Vector3.Distance(transform.position, enemyShipTargets[destinationNumber].transform.position) <= 2)
+        if (!noships)
         {
-            overHalfwayMark = false;
-            droppedBomb = true;
+            if (Vector3.Distance(transform.position, enemyShipTargets[destinationNumber].transform.position) <= 2)
+            {
+                overHalfwayMark = false;
+                droppedBomb = true;
+            }
+        }
+        else
+        {
+            if (Vector3.Distance(transform.position, baseTarget.transform.position) <= 2)
+            {
+                overHalfwayMark = false;
+                droppedBomb = true;
+            }
         }
 
         if (!noships)
